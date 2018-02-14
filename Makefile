@@ -22,9 +22,12 @@ lint:
 publish:
 	npm publish
 
+production:
+	npm run build && npm start
+	
 deploy:
 	git push heroku master
-	heroku ps:scale web=1
-	heroku open
+	heroku ps:scale web=1 --remote origin
+	heroku open --remote origin
 
 .PHONY: test
