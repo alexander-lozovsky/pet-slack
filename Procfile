@@ -1,1 +1,1 @@
-web: make build && make start
+web: make production

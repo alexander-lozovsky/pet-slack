@@ -22,6 +22,10 @@ lint:
 publish:
 	npm publish
 
+production:
+	make build
+	npm run start
+
 deploy:
 	git push heroku master
 	heroku ps:scale web=1
