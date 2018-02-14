@@ -30,6 +30,8 @@
   },
   "homepage": "https://github.com/Fitz354/project-lvl4-s211#readme",
   "dependencies": {
+    "@babel/core": "^7.0.0-beta.40",
+    "babel-core": "^7.0.0-bridge.0",
     "@babel/cli": "*",
     "@babel/node": "*",
     "@babel/polyfill": "*",
@@ -70,8 +72,6 @@
     "webpack": "^3.10.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.40",
-    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "*",
     "babel-jest": "^22.2.2",
     "eslint": "*",

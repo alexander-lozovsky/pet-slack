@@ -22,4 +22,9 @@ lint:
 publish:
 	npm publish
 
+deploy:
+	git push heroku master
+	heroku ps:scale web=1
+	heroku open
+
 .PHONY: test
