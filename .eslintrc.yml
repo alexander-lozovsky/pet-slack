@@ -1,0 +1,18 @@
+---
+env:
+  node: true
+  jest: true
+  browser: true
+
+parser: babel-eslint
+
+extends:
+  - 'airbnb-base'
+  - 'plugin:react/recommended'
+
+plugins:
+  - 'react'
+
+rules:
+  react/display-name: 0
+  react/prop-types: 0
