@@ -25,13 +25,15 @@ export default () => {
   app.use(session(app));
   app.use(bodyParser());
   // app.use(serve(path.join(__dirname, '..', 'public')));
-  app.use(middleware({
-    config: getWebpackConfig(),
-  }));
+  if (process.env.NODE_ENV !== 'production') {
+    app.use(middleware({
+      config: getWebpackConfig('dev'),
+    }));
+    app.use(koaLogger());
+  }
 
   const router = new Router();
 
-  app.use(koaLogger());
   const pug = new Pug({
     viewPath: path.join(__dirname, '..', 'views'),
     debug: true,

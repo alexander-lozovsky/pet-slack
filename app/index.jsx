@@ -6,8 +6,6 @@ import thunk from 'redux-thunk';
 
 import faker from 'faker/locale/en';
 import cookies from 'js-cookie';
-// import gon from 'gon';
-// import io from 'socket.io-client';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/application.css';

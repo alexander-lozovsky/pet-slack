@@ -14,9 +14,7 @@
     "start": "babel-node dist/bin/slack.js",
     "eslint": "eslint app/",
     "webpack": "webpack",
-    "build-server": "babel server --out-dir dist --source-maps inline",
-    "build-app": "npm run webpack -- -p --env production",
-    "build": "npm run build-app && npm run build-server"
+    "build-server": "babel server --out-dir dist --source-maps inline"
   },
   "repository": {
     "type": "git",
@@ -68,7 +66,8 @@
     "redux-thunk": "*",
     "socket.io": "*",
     "style-loader": "*",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "webpack-merge": "^4.1.1"
   },
   "devDependencies": {
     "babel-eslint": "*",

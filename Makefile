@@ -3,12 +3,29 @@ install-deps:
 
 install: install-deps install-flow-typed
 
-start:
-	npm run nodemon -- --exec npm run babel-node -- server/bin/slack.js
-
-build:
+build-dev:
 	rm -rf dist
-	npm run build
+	npm run webpack -- -p --env dev
+	npm run build-server
+
+build-prod:
+	rm -rf dist
+	npm run webpack -- -p --env prod
+	npm run build-server
+
+start-dev:
+	npm run nodemon -- --exec npm start
+
+start-prod:
+	npm start
+
+dev:
+	make build-dev 
+	make start-dev
+
+prod:
+	make build-prod
+	make start-prod
 
 test:
 	npm test
@@ -22,9 +39,6 @@ lint:
 publish:
 	npm publish
 
-production:
-	npm run build && npm start
-	
 deploy:
 	git push heroku master
 	heroku ps:scale web=1 --remote origin
