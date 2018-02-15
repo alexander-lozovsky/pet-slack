@@ -41,7 +41,7 @@ publish:
 
 deploy:
 	git push heroku master
-	heroku ps:scale web=1 --remote origin
-	heroku open --remote origin
+	heroku ps:scale web=1 --app lozovsky-slack
+	heroku open --app lozovsky-slack
 
 .PHONY: test
