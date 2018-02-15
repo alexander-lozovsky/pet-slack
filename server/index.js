@@ -21,16 +21,14 @@ import getWebpackConfig from '../webpack.config.babel';
 export default () => {
   const app = new Koa();
 
+  app.use(koaLogger());
   app.keys = ['some secret hurr'];
   app.use(session(app));
   app.use(bodyParser());
   // app.use(serve(path.join(__dirname, '..', 'public')));
-  if (process.env.NODE_ENV !== 'production') {
-    app.use(middleware({
-      config: getWebpackConfig('dev'),
-    }));
-    app.use(koaLogger());
-  }
+  app.use(middleware({
+    config: getWebpackConfig('dev'),
+  }));
 
   const router = new Router();
 

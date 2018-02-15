@@ -13,10 +13,6 @@ import '../assets/application.css';
 import App from './components/App.jsx';
 import reducers from './reducers';
 
-if (!cookies.get('userName')) {
-  cookies.set('userName', faker.name.findName());
-}
-
 if (process.env.NODE_ENV !== 'production') {
   localStorage.debug = 'chat:*';
 }
@@ -24,9 +20,17 @@ if (process.env.NODE_ENV !== 'production') {
 const ext = window.__REDUX_DEVTOOLS_EXTENSION__; // eslint-disable-line
 const devtoolMiddleware = ext && ext();
 
+
+let userName = cookies.get('userName');
+
+if (!userName) {
+  userName = faker.name.findName();
+  cookies.set('userName', userName);
+}
+
 const store = createStore(
   reducers,
-  window.gon,
+  { userName, ...window.gon },
   compose(
     applyMiddleware(thunk),
     devtoolMiddleware,
