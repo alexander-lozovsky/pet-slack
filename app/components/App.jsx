@@ -1,11 +1,11 @@
 import React from 'react';
-import ChannelsListContainer from '../containers/ChannelsListContainer';
+import ChannelsList from '../components/ChannelsList.jsx';
 
 export default () => (
   <div className="container">
     <div className="row">
       <div className="col-">
-        <ChannelsListContainer />
+        <ChannelsList />
       </div>
       <div className="col-xl">chat</div>
     </div>
