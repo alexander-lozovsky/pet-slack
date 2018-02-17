@@ -29,7 +29,7 @@ export default class ChannelsList extends React.Component {
               active: id === currentChannelId,
             });
 
-            return <a className={channelClass} href="#" key={id}>{name}</a>;
+            return <a className={channelClass} href="#" key={id}>{`# ${name}`}</a>;
           })}
         </div>
       </div>

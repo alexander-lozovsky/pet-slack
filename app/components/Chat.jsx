@@ -59,7 +59,7 @@ export default class Chat extends React.Component {
 
     return (
       <div className="chat d-flex flex-column justify-content-between h-100">
-        <p className="chat-name">{channelName}</p>
+        <p className="chat-name">{`#${channelName}`}</p>
         <div className="chat-messages h-75">
           <div className="card h-100">
             <div className="card-body" ref={(div) => { this.chatWindow = div; }}>
