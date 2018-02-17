@@ -3,7 +3,8 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-// import io from 'socket.io-client';
+import '@babel/polyfill';
+
 
 import faker from 'faker/locale/en';
 import cookies from 'js-cookie';
@@ -13,8 +14,6 @@ import '../assets/application.css';
 
 import App from './components/App.jsx';
 import reducers from './reducers';
-
-// const socket = io();
 
 if (process.env.NODE_ENV !== 'production') {
   localStorage.debug = 'chat:*';
