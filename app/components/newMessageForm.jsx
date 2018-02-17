@@ -17,8 +17,8 @@ class messageForm extends React.Component {
 
     const { userName, currentChannelId } = this.props;
     const date = new Date();
-    const seconds = date.getSeconds();
-    const time = `${date.getHours()}:${seconds > 9 ? seconds : `0${seconds}`}`;
+    const minutes = date.getMinutes();
+    const time = `${date.getHours()}:${minutes > 9 ? minutes : `0${minutes}`}`;
     const newMessage = {
       userName,
       time,
