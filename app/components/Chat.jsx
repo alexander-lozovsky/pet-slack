@@ -51,7 +51,7 @@ export default class Chat extends React.Component {
           <span className="message-sender font-weight-bold">{item.userName} </span>
           <span className="message-time">{item.time}</span>
         </div>
-        <p className="pl-5">{item.text}</p>
+        <p className="pl-3 pr-3">{item.text}</p>
       </div>);
 
   render() {
@@ -59,8 +59,8 @@ export default class Chat extends React.Component {
 
     return (
       <div className="chat d-flex flex-column justify-content-between h-100">
-        <p className="chat-name">{`#${channelName}`}</p>
-        <div className="chat-messages h-75">
+        <h2 className="chat-name">{`#${channelName}`}</h2>
+        <div className="chat-messages col">
           <div className="card h-100">
             <div className="card-body" ref={(div) => { this.chatWindow = div; }}>
               {this.renderMessages()}
@@ -69,7 +69,7 @@ export default class Chat extends React.Component {
             </div>
           </div>
         </div>
-        <div className="chat-input mt-5">
+        <div className="chat-input mt-3">
           <NewMessageForm channelName={channelName}/>
         </div>
       </div>
