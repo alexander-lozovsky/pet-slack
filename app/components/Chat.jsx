@@ -64,12 +64,13 @@ export default class Chat extends React.Component {
           <div className="card h-100">
             <div className="card-body" ref={(div) => { this.chatWindow = div; }}>
               {this.renderMessages()}
-              {messageCreatingState === 'failed' ? <div className="alert alert-danger" role="alert">message was not sent</div> : ''}
+              {messageCreatingState === 'failed' ?
+                <div className="alert alert-danger" role="alert">message was not sent</div> : ''}
             </div>
           </div>
         </div>
         <div className="chat-input mt-5">
-          <NewMessageForm />
+          <NewMessageForm channelName={channelName}/>
         </div>
       </div>
     );

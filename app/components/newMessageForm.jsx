@@ -34,7 +34,7 @@ class messageForm extends React.Component {
       <form className="form-inline" onSubmit={this.props.handleSubmit(this.addMessage)}>
         <div className="form-group w-50 mr-3">
             <Field className="form-control w-100" name="message"
-              component="input" type="text" placeholder="write a message" />
+              component="input" type="text" placeholder={`Message to #${this.props.channelName}`} />
           </div>
           <button type="submit" className="btn btn-primary">Send</button>
       </form>
