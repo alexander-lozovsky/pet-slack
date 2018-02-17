@@ -24,19 +24,19 @@ export default class Chat extends React.Component {
     this.socket = io();
 
     this.socket.on('newMessage', ({ data: { attributes: message } }) => {
-      if (message.userName === props.userName) {
+      if (message.userName === this.props.userName) {
         return;
       }
 
-      props.addMessage({ message });
+      this.props.addMessage({ message });
     });
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     this.setScrollToBottom();
   }
 
-  componentDidUpdate = () => {
+  componentDidUpdate() {
     this.setScrollToBottom();
   }
 
@@ -44,15 +44,31 @@ export default class Chat extends React.Component {
     this.chatWindow.scrollTop = this.chatWindow.scrollHeight;
   }
 
-  renderMessages = () =>
-    this.props.messages.map(item =>
-      <div key={item.id} className="message">
-        <div className="message-header">
-          <span className="message-sender font-weight-bold">{item.userName} </span>
-          <span className="message-time">{item.time}</span>
+  renderMessageHeader = (userName, time) => (
+    <div className="message-header">
+      <span className="message-sender font-weight-bold">{userName} </span>
+      <span className="message-time">{time}</span>
+    </div>
+  );
+
+  renderMessages() {
+    const { messages } = this.props;
+    if (messages.length === 0) {
+      return '';
+    }
+
+    return messages.map((item, index) => {
+      const isRenderHeader =
+        index === 0 || messages[index].userName !== messages[index - 1].userName;
+
+      return (
+        <div key={item.id} className="message">
+          {isRenderHeader ? this.renderMessageHeader(item.userName, item.time) : null}
+          <p className="pl-3 pr-3">{item.text}</p>
         </div>
-        <p className="pl-3 pr-3">{item.text}</p>
-      </div>);
+      );
+    });
+  }
 
   render() {
     const { channelName, messageCreatingState } = this.props;
@@ -65,7 +81,7 @@ export default class Chat extends React.Component {
             <div className="card-body" ref={(div) => { this.chatWindow = div; }}>
               {this.renderMessages()}
               {messageCreatingState === 'failed' ?
-                <div className="alert alert-danger" role="alert">message was not sent</div> : ''}
+                <div className="alert alert-danger" role="alert">message was not sent</div> : null}
             </div>
           </div>
         </div>
