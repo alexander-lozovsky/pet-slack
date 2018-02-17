@@ -62,6 +62,7 @@
     "redux": "*",
     "redux-actions": "*",
     "redux-bootstrap": "*",
+    "redux-devtools-extension": "^2.13.2",
     "redux-form": "*",
     "redux-thunk": "*",
     "socket.io": "*",

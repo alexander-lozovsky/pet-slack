@@ -1,11 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import '@babel/polyfill';
-
-
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import faker from 'faker/locale/en';
 import cookies from 'js-cookie';
 
@@ -19,10 +18,6 @@ if (process.env.NODE_ENV !== 'production') {
   localStorage.debug = 'chat:*';
 }
 
-const ext = window.__REDUX_DEVTOOLS_EXTENSION__; // eslint-disable-line
-const devtoolMiddleware = ext && ext();
-
-
 let userName = cookies.get('userName');
 
 if (!userName) {
@@ -33,10 +28,7 @@ if (!userName) {
 const store = createStore(
   reducers,
   { userName, ...window.gon },
-  compose(
-    applyMiddleware(thunk),
-    devtoolMiddleware,
-  ),
+  composeWithDevTools(applyMiddleware(thunk)),
 );
 
 render(
