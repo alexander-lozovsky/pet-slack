@@ -19,7 +19,7 @@ exports[`check app 1`] = `
           <p
             class="h3 text-white"
           >
-            user
+            User1
           </p>
         </div>
         <div
@@ -112,7 +112,7 @@ exports[`check app 2`] = `
           <p
             class="h3 text-white"
           >
-            user
+            User1
           </p>
         </div>
         <div
@@ -205,7 +205,7 @@ exports[`check app 3`] = `
           <p
             class="h3 text-white"
           >
-            user
+            User1
           </p>
         </div>
         <div
@@ -255,7 +255,7 @@ exports[`check app 3`] = `
                   <span
                     class="message-sender font-weight-bold"
                   >
-                    user 
+                    User1 
                   </span>
                   <span
                     class="message-time"
@@ -267,6 +267,281 @@ exports[`check app 3`] = `
                   class="pl-3 pr-3"
                 >
                   hey!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="chat-input mt-3"
+        >
+          <form
+            class="form-inline"
+          >
+            <div
+              class="form-group w-50 mr-3"
+            >
+              <input
+                class="message-input form-control w-100"
+                name="message"
+                placeholder="Message to #general"
+                type="text"
+                value=""
+              />
+            </div>
+            <button
+              class="message-submit btn btn-primary"
+              type="submit"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`check app 4`] = `
+<div
+  class="wrapper container-fluid h-100"
+>
+  <div
+    class="row h-100"
+  >
+    <div
+      class="w-25 h-100 pt-3 bg-dark"
+    >
+      <div
+        class="channels-list h-100"
+      >
+        <div
+          class="user-name pl-3 pr-3"
+        >
+          <p
+            class="h3 text-white"
+          >
+            User1
+          </p>
+        </div>
+        <div
+          class="nav flex-column nav-pills"
+        >
+          <a
+            class="nav-link text-white active"
+            href="#"
+          >
+            # general
+          </a>
+          <a
+            class="nav-link text-white"
+            href="#"
+          >
+            # random
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col pt-3 pb-5 h-100 bg-light"
+    >
+      <div
+        class="chat d-flex flex-column justify-content-between h-100"
+      >
+        <h2
+          class="chat-name"
+        >
+          #general
+        </h2>
+        <div
+          class="chat-messages col"
+        >
+          <div
+            class="card h-100"
+          >
+            <div
+              class="card-body"
+            >
+              <div
+                class="message"
+              >
+                <div
+                  class="message-header"
+                >
+                  <span
+                    class="message-sender font-weight-bold"
+                  >
+                    User1 
+                  </span>
+                  <span
+                    class="message-time"
+                  >
+                    10:00
+                  </span>
+                </div>
+                <p
+                  class="pl-3 pr-3"
+                >
+                  hey!
+                </p>
+              </div>
+              <div
+                class="message"
+              >
+                <p
+                  class="pl-3 pr-3"
+                >
+                  how are you?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="chat-input mt-3"
+        >
+          <form
+            class="form-inline"
+          >
+            <div
+              class="form-group w-50 mr-3"
+            >
+              <input
+                class="message-input form-control w-100"
+                name="message"
+                placeholder="Message to #general"
+                type="text"
+                value=""
+              />
+            </div>
+            <button
+              class="message-submit btn btn-primary"
+              type="submit"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`check app 5`] = `
+<div
+  class="wrapper container-fluid h-100"
+>
+  <div
+    class="row h-100"
+  >
+    <div
+      class="w-25 h-100 pt-3 bg-dark"
+    >
+      <div
+        class="channels-list h-100"
+      >
+        <div
+          class="user-name pl-3 pr-3"
+        >
+          <p
+            class="h3 text-white"
+          >
+            User1
+          </p>
+        </div>
+        <div
+          class="nav flex-column nav-pills"
+        >
+          <a
+            class="nav-link text-white active"
+            href="#"
+          >
+            # general
+          </a>
+          <a
+            class="nav-link text-white"
+            href="#"
+          >
+            # random
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col pt-3 pb-5 h-100 bg-light"
+    >
+      <div
+        class="chat d-flex flex-column justify-content-between h-100"
+      >
+        <h2
+          class="chat-name"
+        >
+          #general
+        </h2>
+        <div
+          class="chat-messages col"
+        >
+          <div
+            class="card h-100"
+          >
+            <div
+              class="card-body"
+            >
+              <div
+                class="message"
+              >
+                <div
+                  class="message-header"
+                >
+                  <span
+                    class="message-sender font-weight-bold"
+                  >
+                    User1 
+                  </span>
+                  <span
+                    class="message-time"
+                  >
+                    10:00
+                  </span>
+                </div>
+                <p
+                  class="pl-3 pr-3"
+                >
+                  hey!
+                </p>
+              </div>
+              <div
+                class="message"
+              >
+                <p
+                  class="pl-3 pr-3"
+                >
+                  how are you?
+                </p>
+              </div>
+              <div
+                class="message"
+              >
+                <div
+                  class="message-header"
+                >
+                  <span
+                    class="message-sender font-weight-bold"
+                  >
+                    User2 
+                  </span>
+                  <span
+                    class="message-time"
+                  >
+                    10:02
+                  </span>
+                </div>
+                <p
+                  class="pl-3 pr-3"
+                >
+                  i'm fine
                 </p>
               </div>
             </div>

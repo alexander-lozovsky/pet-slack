@@ -1,8 +1,6 @@
 import React from 'react';
-import io from 'socket.io-client';
 import connect from '../connect';
 import NewMessageForm from './newMessageForm.jsx';
-
 
 const mapStateToProps = (state) => {
   const { name: channelName } = state.channels.find(item => item.id === state.currentChannelId);
@@ -21,14 +19,12 @@ export default class Chat extends React.Component {
   constructor(props) {
     super(props);
 
-    this.socket = io();
-
-    this.socket.on('newMessage', ({ data: { attributes: message } }) => {
-      if (message.userName === this.props.userName) {
+    props.socket.on('newMessage', ({ data: { attributes: message } }) => {
+      if (message.userName === props.userName) {
         return;
       }
 
-      this.props.addMessage({ message });
+      props.addMessage({ message });
     });
   }
 

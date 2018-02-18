@@ -7,7 +7,7 @@
   },
   "scripts": {
     "nodemon": "nodemon",
-    "test": "jest slack.test.js",
+    "test": "jest",
     "babel-node": "babel-node",
     "flow": "flow",
     "flow-typed": "flow-typed",
@@ -92,6 +92,7 @@
     "flow-typed": "*",
     "jest": "^22",
     "js-polyfills": "^0.1.41",
+    "mock-socket": "^7.1.0",
     "nock": "^9.1.6",
     "nodemon": "*",
     "react-test-renderer": "^16.2.0",

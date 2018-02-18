@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import faker from 'faker/locale/en';
 import cookies from 'js-cookie';
+import io from 'socket.io-client';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/application.css';
@@ -29,7 +30,7 @@ const store = createStore(
 
 render(
   <Provider store={store}>
-    <App />
+    <App socket={io()} />
   </Provider>,
   document.getElementById('app-container'),
 );

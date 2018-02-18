@@ -2,14 +2,14 @@ import React from 'react';
 import ChannelsList from '../components/ChannelsList.jsx';
 import Chat from '../components/Chat.jsx';
 
-export default () => (
+export default props => (
   <div className="wrapper container-fluid h-100">
     <div className="row h-100">
       <div className="w-25 h-100 pt-3 bg-dark">
         <ChannelsList />
       </div>
       <div className="col pt-3 pb-5 h-100 bg-light">
-        <Chat />
+        <Chat socket={props.socket} />
       </div>
     </div>
   </div>
