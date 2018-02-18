@@ -1,9 +1,9 @@
+import '@babel/polyfill';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import '@babel/polyfill';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import faker from 'faker/locale/en';
 import cookies from 'js-cookie';
@@ -13,10 +13,6 @@ import '../assets/application.css';
 
 import App from './components/App.jsx';
 import reducers from './reducers';
-
-if (process.env.NODE_ENV !== 'production') {
-  localStorage.debug = 'chat:*';
-}
 
 let userName = cookies.get('userName');
 

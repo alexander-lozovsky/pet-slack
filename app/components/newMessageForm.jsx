@@ -33,10 +33,10 @@ class messageForm extends React.Component {
     return (
       <form className="form-inline" onSubmit={this.props.handleSubmit(this.addMessage)}>
         <div className="form-group w-50 mr-3">
-            <Field className="form-control w-100" name="message"
+            <Field className="message-input form-control w-100" name="message"
               component="input" type="text" placeholder={`Message to #${this.props.channelName}`} />
           </div>
-          <button type="submit" className="btn btn-primary">Send</button>
+          <button type="submit" className="message-submit btn btn-primary">Send</button>
       </form>
     );
   }

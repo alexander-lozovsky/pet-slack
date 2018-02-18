@@ -16,6 +16,11 @@
     "webpack": "webpack",
     "build-server": "babel server --out-dir dist --source-maps inline"
   },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Fitz354/project-lvl4-s211.git"
@@ -68,12 +73,16 @@
     "socket.io": "*",
     "socket.io-client": "^2.0.4",
     "style-loader": "*",
+    "timeout-then": "^1.1.0",
     "webpack": "^3.10.0",
     "webpack-merge": "^4.1.1"
   },
   "devDependencies": {
     "babel-eslint": "*",
     "babel-jest": "^22.2.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.1",
     "eslint": "*",
     "eslint-config-airbnb-base": "*",
     "eslint-plugin-flowtype": "*",
@@ -82,6 +91,8 @@
     "flow-bin": "^0.63",
     "flow-typed": "*",
     "jest": "^22",
+    "js-polyfills": "^0.1.41",
+    "nock": "^9.1.6",
     "nodemon": "*",
     "react-test-renderer": "^16.2.0",
     "regenerator-runtime": "^0.11.1"

@@ -20,7 +20,6 @@ start-prod:
 	npm start
 
 dev:
-	make build-dev 
 	make start-dev
 
 prod:
