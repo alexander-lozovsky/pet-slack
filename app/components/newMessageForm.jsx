@@ -12,21 +12,9 @@ const mapStateToProps = ({ messageCreatingState, currentChannelId }) => {
 @connect(mapStateToProps)
 class messageForm extends React.Component {
   addMessage = ({ message }) => {
-    if (!message) {
-      return;
-    }
-
     const { userName, currentChannelId } = this.props;
-    const date = new Date();
-    const minutes = date.getMinutes();
-    const time = `${date.getHours()}:${minutes > 9 ? minutes : `0${minutes}`}`;
-    const newMessage = {
-      userName,
-      time,
-      text: message,
-    };
 
-    this.props.sendMessage(newMessage, currentChannelId);
+    this.props.sendMessage(message, userName, currentChannelId);
     this.props.reset();
   }
 
