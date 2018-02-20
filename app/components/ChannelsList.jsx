@@ -17,11 +17,11 @@ export default class ChannelsList extends React.Component {
     const { userName, channels, currentChannelId } = this.props;
 
     return (
-      <div className='channels-list h-100'>
-        <div className='user-name pl-3 pr-3'>
+      <div className="channels-list h-100">
+        <div className="user-name pl-3 pr-3">
           <p className="h3 text-white">{userName}</p>
         </div>
-        <div className='nav flex-column nav-pills'>
+        <div className="nav flex-column nav-pills">
           {channels.map(({ id, name }) => {
             const channelClass = cn({
               'nav-link': true,

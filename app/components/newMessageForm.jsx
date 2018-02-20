@@ -26,7 +26,7 @@ class messageForm extends React.Component {
             <Field className="message-input form-control w-100" name="message"
               component="input" type="text" placeholder={`Message to #${channelName}`} />
           </div>
-          <button disabled={isDisabled} type="submit" className='message-submit btn btn-primary'>Send</button>
+          <button disabled={isDisabled} type="submit" className="message-submit btn btn-primary">Send</button>
       </form>
     );
   }
