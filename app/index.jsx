@@ -12,6 +12,7 @@ import io from 'socket.io-client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/application.css';
 
+import gon from 'gon'; // eslint-disable-line
 import App from './components/App.jsx';
 import reducers from './reducers';
 
@@ -24,7 +25,7 @@ if (!userName) {
 
 const store = createStore(
   reducers,
-  { ...window.gon },
+  gon,
   composeWithDevTools(applyMiddleware(thunk)),
 );
 

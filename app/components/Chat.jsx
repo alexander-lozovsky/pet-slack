@@ -54,7 +54,7 @@ export default class Chat extends React.Component {
 
     return messages.map((item, index) => {
       const isRenderHeader =
-        index === 0 || messages[index].userName !== messages[index - 1].userName;
+        index === 0 || item.userName !== messages[index - 1].userName;
 
       return (
         <div key={item.id} className="message">
