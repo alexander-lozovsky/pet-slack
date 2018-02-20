@@ -9,7 +9,7 @@ export const sendMessageSuccess = createAction('MESSAGE_ADD_SUCCESS');
 export const sendMessageFailure = createAction('MESSAGE_ADD_FAILURE');
 
 export const sendMessage = (message, channelId) => async (dispatch) => {
-  dispatch(sendMessageRequest);
+  dispatch(sendMessageRequest());
   try {
     const response =
       await axios.post(routes.messagesUrl(channelId), { data: { attributes: message } });
