@@ -50,7 +50,6 @@ it('check app', async () => {
   const mockServer = new Server('http://localhost:8080');
 
   const initState = {
-    userName: 'User1',
     channels: [
       { id: 1, name: 'general', removable: false },
       { id: 2, name: 'random', removable: false },
@@ -68,7 +67,7 @@ it('check app', async () => {
   document.body.innerHTML = '<div id="app-container"></div>';
   const wrapper = mount(
     <Provider store={store}>
-      <App socket={SocketIO('http://localhost:8080')} />
+      <App userName='User1' socket={SocketIO('http://localhost:8080')} />
     </Provider>,
     document.getElementById('app-container'),
   );

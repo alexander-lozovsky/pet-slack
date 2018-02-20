@@ -24,13 +24,13 @@ if (!userName) {
 
 const store = createStore(
   reducers,
-  { userName, ...window.gon },
+  { ...window.gon },
   composeWithDevTools(applyMiddleware(thunk)),
 );
 
 render(
   <Provider store={store}>
-    <App socket={io()} />
+    <App userName = {userName} socket={io()} />
   </Provider>,
   document.getElementById('app-container'),
 );

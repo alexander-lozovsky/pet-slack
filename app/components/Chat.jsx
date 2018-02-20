@@ -6,7 +6,6 @@ const mapStateToProps = (state) => {
   const { name: channelName } = state.channels.find(item => item.id === state.currentChannelId);
   const props = {
     channelName,
-    userName: state.userName,
     messages: state.messages,
     messageCreatingState: state.messageCreatingState,
   };
@@ -67,7 +66,7 @@ export default class Chat extends React.Component {
   }
 
   render() {
-    const { channelName, messageCreatingState } = this.props;
+    const { userName, channelName, messageCreatingState } = this.props;
 
     return (
       <div className="chat d-flex flex-column justify-content-between h-100">
@@ -82,7 +81,7 @@ export default class Chat extends React.Component {
           </div>
         </div>
         <div className="chat-input mt-3">
-          <NewMessageForm channelName={channelName}/>
+          <NewMessageForm userName = {userName} channelName={channelName}/>
         </div>
       </div>
     );

@@ -2,9 +2,8 @@ import React from 'react';
 import cn from 'classnames';
 import connect from '../connect';
 
-const mapStateToProps = ({ channels, currentChannelId, userName }) => {
+const mapStateToProps = ({ channels, currentChannelId }) => {
   const props = {
-    userName,
     channels,
     currentChannelId,
   };

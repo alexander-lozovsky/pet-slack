@@ -6,10 +6,10 @@ export default props => (
   <div className="wrapper container-fluid h-100">
     <div className="row h-100">
       <div className="w-25 h-100 pt-3 bg-dark">
-        <ChannelsList />
+        <ChannelsList userName = {props.userName}/>
       </div>
       <div className="col pt-3 pb-5 h-100 bg-light">
-        <Chat socket={props.socket} />
+        <Chat userName = {props.userName} socket={props.socket} />
       </div>
     </div>
   </div>

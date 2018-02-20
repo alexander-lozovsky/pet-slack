@@ -21,13 +21,11 @@ const messages = handleActions({
   },
 }, []);
 
-const userName = handleActions({}, '');
 const channels = handleActions({}, []);
 const currentChannelId = handleActions({}, 0);
 
 export default combineReducers({
   messageCreatingState,
-  userName,
   channels,
   messages,
   currentChannelId,

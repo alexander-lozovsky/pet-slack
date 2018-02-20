@@ -2,8 +2,8 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import connect from '../connect';
 
-const mapStateToProps = ({ userName, currentChannelId }) => {
-  const props = { userName, currentChannelId };
+const mapStateToProps = ({ currentChannelId }) => {
+  const props = { currentChannelId };
 
   return props;
 };
