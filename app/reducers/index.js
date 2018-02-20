@@ -16,7 +16,10 @@ const messageCreatingState = handleActions({
 }, 'none');
 
 const messages = handleActions({
-  [actions.addMessage](state, { payload: { message } }) {
+  [actions.getMessage](state, { payload: { message } }) {
+    return [...state, message];
+  },
+  [actions.sendMessageSuccess](state, { payload: { message } }) {
     return [...state, message];
   },
 }, []);

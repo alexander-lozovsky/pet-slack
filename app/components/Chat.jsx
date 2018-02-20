@@ -15,18 +15,6 @@ const mapStateToProps = (state) => {
 
 @connect(mapStateToProps)
 export default class Chat extends React.Component {
-  constructor(props) {
-    super(props);
-
-    props.socket.on('newMessage', ({ data: { attributes: message } }) => {
-      if (message.userName === props.userName) {
-        return;
-      }
-
-      props.addMessage({ message });
-    });
-  }
-
   componentDidMount() {
     this.setScrollToBottom();
   }

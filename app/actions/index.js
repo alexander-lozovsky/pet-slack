@@ -2,17 +2,13 @@ import { createAction } from 'redux-actions';
 import axios from 'axios';
 import routes from '../routes';
 
-export const addMessage = createAction('MESSAGE_ADD');
+export const getMessage = createAction('MESSAGE_GET');
 
-export const sendMessageRequest = createAction('MESSAGE_ADD_REQUEST');
-export const sendMessageSuccess = createAction('MESSAGE_ADD_SUCCESS');
-export const sendMessageFailure = createAction('MESSAGE_ADD_FAILURE');
+export const sendMessageRequest = createAction('MESSAGE_SEND_REQUEST');
+export const sendMessageSuccess = createAction('MESSAGE_SEND_SUCCESS');
+export const sendMessageFailure = createAction('MESSAGE_SEND_FAILURE');
 
 export const sendMessage = (text, userName, channelId) => async (dispatch) => {
-  if (!text) {
-    return;
-  }
-
   const date = new Date();
   const minutes = date.getMinutes();
   const time = `${date.getHours()}:${minutes > 9 ? minutes : `0${minutes}`}`;
@@ -26,8 +22,7 @@ export const sendMessage = (text, userName, channelId) => async (dispatch) => {
   try {
     const response =
       await axios.post(routes.messagesUrl(channelId), { data: { attributes: message } });
-    dispatch(sendMessageSuccess());
-    dispatch(addMessage({ message: response.data.data.attributes }));
+    dispatch(sendMessageSuccess({ message: response.data.data.attributes }));
   } catch (e) {
     dispatch(sendMessageFailure());
   }

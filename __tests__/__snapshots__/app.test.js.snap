@@ -81,6 +81,7 @@ exports[`check app 1`] = `
             </div>
             <button
               class="message-submit btn btn-primary"
+              disabled=""
               type="submit"
             >
               Send
@@ -291,6 +292,7 @@ exports[`check app 3`] = `
             </div>
             <button
               class="message-submit btn btn-primary"
+              disabled=""
               type="submit"
             >
               Send
@@ -417,6 +419,7 @@ exports[`check app 4`] = `
             </div>
             <button
               class="message-submit btn btn-primary"
+              disabled=""
               type="submit"
             >
               Send
@@ -566,6 +569,7 @@ exports[`check app 5`] = `
             </div>
             <button
               class="message-submit btn btn-primary"
+              disabled=""
               type="submit"
             >
               Send

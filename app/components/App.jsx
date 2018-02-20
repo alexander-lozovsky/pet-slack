@@ -9,7 +9,7 @@ export default props => (
         <ChannelsList userName = {props.userName}/>
       </div>
       <div className="col pt-3 pb-5 h-100 bg-light">
-        <Chat userName = {props.userName} socket={props.socket} />
+        <Chat userName = {props.userName} />
       </div>
     </div>
   </div>

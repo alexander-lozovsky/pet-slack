@@ -12,9 +12,14 @@ import io from 'socket.io-client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/application.css';
 
+import addSocketHandlers from './socket';
 import gon from 'gon'; // eslint-disable-line
 import App from './components/App.jsx';
 import reducers from './reducers';
+
+if (process.env.NODE_ENV !== 'production') {
+  localStorage.debug = 'chat:*';
+}
 
 let userName = cookies.get('userName');
 
@@ -28,10 +33,12 @@ const store = createStore(
   gon,
   composeWithDevTools(applyMiddleware(thunk)),
 );
+const socket = io();
+addSocketHandlers(socket, store.dispatch, userName);
 
 render(
   <Provider store={store}>
-    <App userName = {userName} socket={io()} />
+    <App userName = {userName}/>
   </Provider>,
   document.getElementById('app-container'),
 );

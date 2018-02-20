@@ -13,6 +13,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
+import addSocketHandlers from '../app/socket';
 import App from '../app/components/App.jsx';
 import reducers from '../app/reducers';
 
@@ -47,8 +48,6 @@ const catchMessage = () => {
 };
 
 it('check app', async () => {
-  const mockServer = new Server('http://localhost:8080');
-
   const initState = {
     channels: [
       { id: 1, name: 'general', removable: false },
@@ -64,10 +63,14 @@ it('check app', async () => {
     applyMiddleware(thunk),
   );
 
+  const mockServer = new Server('http://localhost:8080');
+  const mockClient = SocketIO('http://localhost:8080');
+  addSocketHandlers(mockClient, store.dispatch, 'user1');
+
   document.body.innerHTML = '<div id="app-container"></div>';
   const wrapper = mount(
     <Provider store={store}>
-      <App userName='User1' socket={SocketIO('http://localhost:8080')} />
+      <App userName='User1' />
     </Provider>,
     document.getElementById('app-container'),
   );
