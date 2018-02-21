@@ -84,13 +84,13 @@ it('check app', async () => {
 
   catchMessage();
   messageSubmit.simulate('submit');
-  await timeout(100);
+  await timeout(500);
   expect(wrapper.render()).toMatchSnapshot();
 
   messageInput.simulate('change', { target: { value: 'how are you?' } });
   catchMessage();
   messageSubmit.simulate('submit');
-  await timeout(100);
+  await timeout(500);
   expect(wrapper.render()).toMatchSnapshot();
 
   const newMessageId = getNextId();
@@ -108,4 +108,14 @@ it('check app', async () => {
   };
   mockServer.emit('newMessage', newMessage);
   expect(wrapper.render()).toMatchSnapshot();
+
+  // const randomChannel = wrapper.find('.nav-link').last();
+  // randomChannel.simulate('click');
+  // expect(wrapper.render()).toMatchSnapshot();
+
+  // catchMessage();
+  // messageInput.simulate('change', { target: { value: 'hahah!' } });
+  // messageSubmit.simulate('submit');
+  // await timeout(500);
+  // expect(wrapper.render()).toMatchSnapshot();
 });

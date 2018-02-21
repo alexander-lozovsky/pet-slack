@@ -8,6 +8,8 @@ export const sendMessageRequest = createAction('MESSAGE_SEND_REQUEST');
 export const sendMessageSuccess = createAction('MESSAGE_SEND_SUCCESS');
 export const sendMessageFailure = createAction('MESSAGE_SEND_FAILURE');
 
+export const switchChannel = createAction('CHANNEL_SWITCH');
+
 export const sendMessage = (text, userName, channelId) => async (dispatch) => {
   const date = new Date();
   const minutes = date.getMinutes();

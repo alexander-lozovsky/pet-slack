@@ -38,7 +38,7 @@ addSocketHandlers(socket, store.dispatch, userName);
 
 render(
   <Provider store={store}>
-    <App userName = {userName}/>
+    <App userName={userName}/>
   </Provider>,
   document.getElementById('app-container'),
 );

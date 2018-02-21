@@ -246,31 +246,7 @@ exports[`check app 3`] = `
           >
             <div
               class="card-body"
-            >
-              <div
-                class="message"
-              >
-                <div
-                  class="message-header"
-                >
-                  <span
-                    class="message-sender font-weight-bold"
-                  >
-                    User1 
-                  </span>
-                  <span
-                    class="message-time"
-                  >
-                    10:00
-                  </span>
-                </div>
-                <p
-                  class="pl-3 pr-3"
-                >
-                  hey!
-                </p>
-              </div>
-            </div>
+            />
           </div>
         </div>
         <div
@@ -364,40 +340,7 @@ exports[`check app 4`] = `
           >
             <div
               class="card-body"
-            >
-              <div
-                class="message"
-              >
-                <div
-                  class="message-header"
-                >
-                  <span
-                    class="message-sender font-weight-bold"
-                  >
-                    User1 
-                  </span>
-                  <span
-                    class="message-time"
-                  >
-                    10:00
-                  </span>
-                </div>
-                <p
-                  class="pl-3 pr-3"
-                >
-                  hey!
-                </p>
-              </div>
-              <div
-                class="message"
-              >
-                <p
-                  class="pl-3 pr-3"
-                >
-                  how are you?
-                </p>
-              </div>
-            </div>
+            />
           </div>
         </div>
         <div
@@ -491,63 +434,7 @@ exports[`check app 5`] = `
           >
             <div
               class="card-body"
-            >
-              <div
-                class="message"
-              >
-                <div
-                  class="message-header"
-                >
-                  <span
-                    class="message-sender font-weight-bold"
-                  >
-                    User1 
-                  </span>
-                  <span
-                    class="message-time"
-                  >
-                    10:00
-                  </span>
-                </div>
-                <p
-                  class="pl-3 pr-3"
-                >
-                  hey!
-                </p>
-              </div>
-              <div
-                class="message"
-              >
-                <p
-                  class="pl-3 pr-3"
-                >
-                  how are you?
-                </p>
-              </div>
-              <div
-                class="message"
-              >
-                <div
-                  class="message-header"
-                >
-                  <span
-                    class="message-sender font-weight-bold"
-                  >
-                    User2 
-                  </span>
-                  <span
-                    class="message-time"
-                  >
-                    10:02
-                  </span>
-                </div>
-                <p
-                  class="pl-3 pr-3"
-                >
-                  i'm fine
-                </p>
-              </div>
-            </div>
+            />
           </div>
         </div>
         <div

@@ -13,6 +13,11 @@ const mapStateToProps = ({ channels, currentChannelId }) => {
 
 @connect(mapStateToProps)
 export default class ChannelsList extends React.Component {
+  switchChannel = id => (e) => {
+    e.preventDefault();
+    this.props.switchChannel({ id });
+  };
+
   render() {
     const { userName, channels, currentChannelId } = this.props;
 
@@ -29,7 +34,7 @@ export default class ChannelsList extends React.Component {
               active: id === currentChannelId,
             });
 
-            return <a className={channelClass} href="#" key={id}>{`# ${name}`}</a>;
+            return <a onClick={this.switchChannel(id)} className={channelClass} href="#" key={id}>{`# ${name}`}</a>;
           })}
         </div>
       </div>

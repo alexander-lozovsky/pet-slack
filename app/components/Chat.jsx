@@ -4,9 +4,10 @@ import NewMessageForm from './newMessageForm.jsx';
 
 const mapStateToProps = (state) => {
   const { name: channelName } = state.channels.find(item => item.id === state.currentChannelId);
+  const messages = state.messages.filter(item => item.channelId === state.currentChannelId);
   const props = {
     channelName,
-    messages: state.messages,
+    messages,
     messageCreatingState: state.messageCreatingState,
   };
 
@@ -69,7 +70,7 @@ export default class Chat extends React.Component {
           </div>
         </div>
         <div className="chat-input mt-3">
-          <NewMessageForm userName = {userName} channelName={channelName}/>
+          <NewMessageForm userName={userName} channelName={channelName}/>
         </div>
       </div>
     );
