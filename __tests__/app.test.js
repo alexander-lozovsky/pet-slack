@@ -23,9 +23,9 @@ axios.defaults.adapter = httpAdapter;
 
 const getNextId = () => Number(_.uniqueId());
 
-const catchMessage = () => {
+const catchMessage = (channelId) => {
   nock('http://localhost')
-    .post('/api/v1/channels/1/messages')
+    .post(`/api/v1/channels/${channelId}/messages`)
     .reply(200, (uri, body) => {
       const data = JSON.parse(body);
       const id = getNextId();
@@ -33,6 +33,7 @@ const catchMessage = () => {
         ...data.data.attributes,
         time: '10:00',
         id,
+        channelId,
       };
 
       const response = {
@@ -82,15 +83,15 @@ it('check app', async () => {
   messageInput.simulate('change', { target: { value: 'hey!' } });
   expect(wrapper.render()).toMatchSnapshot();
 
-  catchMessage();
+  catchMessage(1);
   messageSubmit.simulate('submit');
-  await timeout(500);
+  await timeout(100);
   expect(wrapper.render()).toMatchSnapshot();
 
   messageInput.simulate('change', { target: { value: 'how are you?' } });
-  catchMessage();
+  catchMessage(1);
   messageSubmit.simulate('submit');
-  await timeout(500);
+  await timeout(100);
   expect(wrapper.render()).toMatchSnapshot();
 
   const newMessageId = getNextId();
@@ -100,6 +101,7 @@ it('check app', async () => {
       id: newMessageId,
       attributes: {
         id: newMessageId,
+        channelId: 1,
         userName: 'User2',
         time: '10:02',
         text: 'i\'m fine',
@@ -109,13 +111,30 @@ it('check app', async () => {
   mockServer.emit('newMessage', newMessage);
   expect(wrapper.render()).toMatchSnapshot();
 
-  // const randomChannel = wrapper.find('.nav-link').last();
-  // randomChannel.simulate('click');
-  // expect(wrapper.render()).toMatchSnapshot();
+  const randomChannel = wrapper.find('.nav-link').last();
+  randomChannel.simulate('click');
+  expect(wrapper.render()).toMatchSnapshot();
 
-  // catchMessage();
-  // messageInput.simulate('change', { target: { value: 'hahah!' } });
-  // messageSubmit.simulate('submit');
-  // await timeout(500);
-  // expect(wrapper.render()).toMatchSnapshot();
+  catchMessage(2);
+  messageInput.simulate('change', { target: { value: 'hahah!' } });
+  messageSubmit.simulate('submit');
+  await timeout(100);
+  expect(wrapper.render()).toMatchSnapshot();
+
+  const newMessageId2 = getNextId();
+  const newMessage2 = {
+    data: {
+      type: 'messages',
+      id: newMessageId2,
+      attributes: {
+        id: newMessageId2,
+        channelId: 2,
+        userName: 'User2',
+        time: '10:05',
+        text: 'eeee',
+      },
+    },
+  };
+  mockServer.emit('newMessage', newMessage2);
+  expect(wrapper.render()).toMatchSnapshot();
 });
