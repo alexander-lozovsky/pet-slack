@@ -1,14 +1,17 @@
 import React from 'react';
+import { Modal, Button } from 'react-bootstrap';
 import connect from '../connect';
-import NewMessageForm from './newMessageForm.jsx';
+import NewMessageForm from './NewMessageForm.jsx';
+import RenameChannelForm from './RenameChannelForm.jsx';
 
 const mapStateToProps = (state) => {
-  const { name: channelName } = state.channels.find(item => item.id === state.currentChannelId);
+  const currentChannel = state.channels.find(item => item.id === state.currentChannelId);
   const messages = state.messages.filter(item => item.channelId === state.currentChannelId);
   const props = {
-    channelName,
+    currentChannel,
     messages,
     messageCreatingState: state.messageCreatingState,
+    showModal: state.uiState.showModal,
   };
 
   return props;
@@ -54,12 +57,70 @@ export default class Chat extends React.Component {
     });
   }
 
+  handleCloseModal = () => {
+    this.props.closeModal();
+  }
+
+  handleShowEditModal = () => {
+    this.props.showModalEditChannel();
+  }
+
+  handleShowRemoveModal = () => {
+    this.props.showModalRemoveChannel();
+  }
+
+  handleRemoveChannel = () => {
+    this.props.sendRemoveChannel(this.props.currentChannel.id);
+    this.props.closeModal();
+  }
+
+  renderModalRenameChannel = () =>
+    (
+      <div className="rename-channel-modal static-modal">
+        <Modal.Dialog>
+          <Modal.Header>
+            <Modal.Title>Rename channel</Modal.Title>
+          </Modal.Header>
+
+          <Modal.Body>
+            <RenameChannelForm name={this.props.currentChannel.name}/>
+          </Modal.Body>
+        </Modal.Dialog>
+      </div>
+    );
+
+  renderModalRemoveChannel = () =>
+    (
+      <div className="remove-channel-modal static-modal">
+        <Modal.Dialog>
+          <Modal.Header>
+            <Modal.Title>{`Remove ${this.props.currentChannel.name}`}</Modal.Title>
+          </Modal.Header>
+
+          <Modal.Body>{`Do you really want to remove ${this.props.currentChannel.name}?`}</Modal.Body>
+
+          <Modal.Footer>
+            <Button onClick={this.handleRemoveChannel} className="remove-channel-confirm-btn" bsStyle="danger">Remove</Button>
+            <Button onClick={this.handleCloseModal}>Close</Button>
+          </Modal.Footer>
+        </Modal.Dialog>
+      </div>
+    );
+
   render() {
-    const { userName, channelName, messageCreatingState } = this.props;
+    const { userName, currentChannel, messageCreatingState } = this.props;
 
     return (
       <div className="chat d-flex flex-column justify-content-between h-100">
-        <h2 className="chat-name">{`#${channelName}`}</h2>
+        <div className='chat-header d-flex mb-3'>
+          <h2 className="chat-name mr-3">{`#${currentChannel.name}`}</h2>
+
+          <button onClick={this.handleShowEditModal} type="button"
+            className="show-rename-channel-modal-btn btn btn-primary mr-3">edit</button>
+          {currentChannel.removable ?
+            <button onClick={this.handleShowRemoveModal} type="button"
+              className="show-remove-channel-modal-btn btn btn-danger">remove</button> : null}
+        </div>
         <div className="chat-messages col">
           <div className="card h-100">
             <div className="card-body" ref={(div) => { this.chatWindow = div; }}>
@@ -70,8 +131,10 @@ export default class Chat extends React.Component {
           </div>
         </div>
         <div className="chat-input mt-3">
-          <NewMessageForm userName={userName} channelName={channelName}/>
+          <NewMessageForm userName={userName} channelName={currentChannel.name} />
         </div>
+        {this.props.showModal === 'editChannel' && this.renderModalRenameChannel()}
+        {this.props.showModal === 'removeChannel' && this.renderModalRemoveChannel()}
       </div>
     );
   }

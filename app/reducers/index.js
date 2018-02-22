@@ -15,6 +15,42 @@ const messageCreatingState = handleActions({
   },
 }, 'none');
 
+const channelCreatingState = handleActions({
+  [actions.sendNewChannelRequest]() {
+    return 'requested';
+  },
+  [actions.sendNewChannelSuccess]() {
+    return 'successed';
+  },
+  [actions.sendNewChannelFailure]() {
+    return 'failed';
+  },
+}, 'none');
+
+const channelRenamingState = handleActions({
+  [actions.sendRenameChannelRequest]() {
+    return 'requested';
+  },
+  [actions.sendRenameChannelSuccess]() {
+    return 'successed';
+  },
+  [actions.sendRenameChannelFailure]() {
+    return 'failed';
+  },
+}, 'none');
+
+const channelRemovingState = handleActions({
+  [actions.sendRemoveChannelRequest]() {
+    return 'requested';
+  },
+  [actions.sendRemoveChannelSuccess]() {
+    return 'successed';
+  },
+  [actions.sendRemoveChannelFailure]() {
+    return 'failed';
+  },
+}, 'none');
+
 const messages = handleActions({
   [actions.getMessage](state, { payload: { message } }) {
     return [...state, message];
@@ -24,17 +60,57 @@ const messages = handleActions({
   },
 }, []);
 
-const channels = handleActions({}, []);
+const channels = handleActions({
+  [actions.sendNewChannelSuccess](state, { payload: { channel } }) {
+    return [...state, channel];
+  },
+  [actions.sendRenameChannelSuccess](state, { payload: { id, name } }) {
+    const editedChannel = state.find(item => item.id === id);
+    editedChannel.name = name;
+    return [...state];
+  },
+  [actions.sendRemoveChannelSuccess](state, { payload: { id } }) {
+    return state.filter(item => item.id !== id);
+  },
+}, []);
+
 const currentChannelId = handleActions({
   [actions.switchChannel](state, { payload: { id } }) {
     return id;
   },
+  [actions.sendNewChannelSuccess](state, { payload: { channel } }) {
+    return channel.id;
+  },
+  [actions.sendRemoveChannelSuccess]() {
+    return 1;
+  },
 }, 0);
+
+const showModal = handleActions({
+  [actions.showModalNewChannel]() {
+    return 'newChannel';
+  },
+  [actions.showModalEditChannel]() {
+    return 'editChannel';
+  },
+  [actions.showModalRemoveChannel]() {
+    return 'removeChannel';
+  },
+  [actions.closeModal]() {
+    return 'none';
+  },
+}, 'none');
+
+const uiState = combineReducers({ showModal });
 
 export default combineReducers({
   messageCreatingState,
+  channelCreatingState,
+  channelRenamingState,
+  channelRemovingState,
   channels,
   messages,
   currentChannelId,
   form: formReducer,
+  uiState,
 });

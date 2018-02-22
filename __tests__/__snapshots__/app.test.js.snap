@@ -23,7 +23,7 @@ exports[`check app 1`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills"
+          class="nav flex-column nav-pills mb-3"
         >
           <a
             class="nav-link text-white active"
@@ -38,6 +38,12 @@ exports[`check app 1`] = `
             # random
           </a>
         </div>
+        <button
+          class="show-new-channel-modal-btn btn btn-primary ml-3"
+          type="button"
+        >
+          new
+        </button>
       </div>
     </div>
     <div
@@ -46,11 +52,21 @@ exports[`check app 1`] = `
       <div
         class="chat d-flex flex-column justify-content-between h-100"
       >
-        <h2
-          class="chat-name"
+        <div
+          class="chat-header d-flex mb-3"
         >
-          #general
-        </h2>
+          <h2
+            class="chat-name mr-3"
+          >
+            #general
+          </h2>
+          <button
+            class="show-rename-channel-modal-btn btn btn-primary mr-3"
+            type="button"
+          >
+            edit
+          </button>
+        </div>
         <div
           class="chat-messages col"
         >
@@ -117,7 +133,7 @@ exports[`check app 2`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills"
+          class="nav flex-column nav-pills mb-3"
         >
           <a
             class="nav-link text-white active"
@@ -132,6 +148,12 @@ exports[`check app 2`] = `
             # random
           </a>
         </div>
+        <button
+          class="show-new-channel-modal-btn btn btn-primary ml-3"
+          type="button"
+        >
+          new
+        </button>
       </div>
     </div>
     <div
@@ -140,11 +162,21 @@ exports[`check app 2`] = `
       <div
         class="chat d-flex flex-column justify-content-between h-100"
       >
-        <h2
-          class="chat-name"
+        <div
+          class="chat-header d-flex mb-3"
         >
-          #general
-        </h2>
+          <h2
+            class="chat-name mr-3"
+          >
+            #general
+          </h2>
+          <button
+            class="show-rename-channel-modal-btn btn btn-primary mr-3"
+            type="button"
+          >
+            edit
+          </button>
+        </div>
         <div
           class="chat-messages col"
         >
@@ -210,7 +242,7 @@ exports[`check app 3`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills"
+          class="nav flex-column nav-pills mb-3"
         >
           <a
             class="nav-link text-white active"
@@ -225,6 +257,12 @@ exports[`check app 3`] = `
             # random
           </a>
         </div>
+        <button
+          class="show-new-channel-modal-btn btn btn-primary ml-3"
+          type="button"
+        >
+          new
+        </button>
       </div>
     </div>
     <div
@@ -233,11 +271,21 @@ exports[`check app 3`] = `
       <div
         class="chat d-flex flex-column justify-content-between h-100"
       >
-        <h2
-          class="chat-name"
+        <div
+          class="chat-header d-flex mb-3"
         >
-          #general
-        </h2>
+          <h2
+            class="chat-name mr-3"
+          >
+            #general
+          </h2>
+          <button
+            class="show-rename-channel-modal-btn btn btn-primary mr-3"
+            type="button"
+          >
+            edit
+          </button>
+        </div>
         <div
           class="chat-messages col"
         >
@@ -328,7 +376,7 @@ exports[`check app 4`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills"
+          class="nav flex-column nav-pills mb-3"
         >
           <a
             class="nav-link text-white active"
@@ -343,6 +391,12 @@ exports[`check app 4`] = `
             # random
           </a>
         </div>
+        <button
+          class="show-new-channel-modal-btn btn btn-primary ml-3"
+          type="button"
+        >
+          new
+        </button>
       </div>
     </div>
     <div
@@ -351,11 +405,21 @@ exports[`check app 4`] = `
       <div
         class="chat d-flex flex-column justify-content-between h-100"
       >
-        <h2
-          class="chat-name"
+        <div
+          class="chat-header d-flex mb-3"
         >
-          #general
-        </h2>
+          <h2
+            class="chat-name mr-3"
+          >
+            #general
+          </h2>
+          <button
+            class="show-rename-channel-modal-btn btn btn-primary mr-3"
+            type="button"
+          >
+            edit
+          </button>
+        </div>
         <div
           class="chat-messages col"
         >
@@ -455,7 +519,7 @@ exports[`check app 5`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills"
+          class="nav flex-column nav-pills mb-3"
         >
           <a
             class="nav-link text-white active"
@@ -470,6 +534,12 @@ exports[`check app 5`] = `
             # random
           </a>
         </div>
+        <button
+          class="show-new-channel-modal-btn btn btn-primary ml-3"
+          type="button"
+        >
+          new
+        </button>
       </div>
     </div>
     <div
@@ -478,11 +548,21 @@ exports[`check app 5`] = `
       <div
         class="chat d-flex flex-column justify-content-between h-100"
       >
-        <h2
-          class="chat-name"
+        <div
+          class="chat-header d-flex mb-3"
         >
-          #general
-        </h2>
+          <h2
+            class="chat-name mr-3"
+          >
+            #general
+          </h2>
+          <button
+            class="show-rename-channel-modal-btn btn btn-primary mr-3"
+            type="button"
+          >
+            edit
+          </button>
+        </div>
         <div
           class="chat-messages col"
         >
@@ -605,7 +685,7 @@ exports[`check app 6`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills"
+          class="nav flex-column nav-pills mb-3"
         >
           <a
             class="nav-link text-white"
@@ -620,6 +700,12 @@ exports[`check app 6`] = `
             # random
           </a>
         </div>
+        <button
+          class="show-new-channel-modal-btn btn btn-primary ml-3"
+          type="button"
+        >
+          new
+        </button>
       </div>
     </div>
     <div
@@ -628,11 +714,21 @@ exports[`check app 6`] = `
       <div
         class="chat d-flex flex-column justify-content-between h-100"
       >
-        <h2
-          class="chat-name"
+        <div
+          class="chat-header d-flex mb-3"
         >
-          #random
-        </h2>
+          <h2
+            class="chat-name mr-3"
+          >
+            #random
+          </h2>
+          <button
+            class="show-rename-channel-modal-btn btn btn-primary mr-3"
+            type="button"
+          >
+            edit
+          </button>
+        </div>
         <div
           class="chat-messages col"
         >
@@ -699,7 +795,7 @@ exports[`check app 7`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills"
+          class="nav flex-column nav-pills mb-3"
         >
           <a
             class="nav-link text-white"
@@ -714,6 +810,12 @@ exports[`check app 7`] = `
             # random
           </a>
         </div>
+        <button
+          class="show-new-channel-modal-btn btn btn-primary ml-3"
+          type="button"
+        >
+          new
+        </button>
       </div>
     </div>
     <div
@@ -722,11 +824,21 @@ exports[`check app 7`] = `
       <div
         class="chat d-flex flex-column justify-content-between h-100"
       >
-        <h2
-          class="chat-name"
+        <div
+          class="chat-header d-flex mb-3"
         >
-          #random
-        </h2>
+          <h2
+            class="chat-name mr-3"
+          >
+            #random
+          </h2>
+          <button
+            class="show-rename-channel-modal-btn btn btn-primary mr-3"
+            type="button"
+          >
+            edit
+          </button>
+        </div>
         <div
           class="chat-messages col"
         >
@@ -817,7 +929,7 @@ exports[`check app 8`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills"
+          class="nav flex-column nav-pills mb-3"
         >
           <a
             class="nav-link text-white"
@@ -832,6 +944,12 @@ exports[`check app 8`] = `
             # random
           </a>
         </div>
+        <button
+          class="show-new-channel-modal-btn btn btn-primary ml-3"
+          type="button"
+        >
+          new
+        </button>
       </div>
     </div>
     <div
@@ -840,11 +958,21 @@ exports[`check app 8`] = `
       <div
         class="chat d-flex flex-column justify-content-between h-100"
       >
-        <h2
-          class="chat-name"
+        <div
+          class="chat-header d-flex mb-3"
         >
-          #random
-        </h2>
+          <h2
+            class="chat-name mr-3"
+          >
+            #random
+          </h2>
+          <button
+            class="show-rename-channel-modal-btn btn btn-primary mr-3"
+            type="button"
+          >
+            edit
+          </button>
+        </div>
         <div
           class="chat-messages col"
         >
@@ -916,6 +1044,416 @@ exports[`check app 8`] = `
                 class="message-input form-control w-100"
                 name="message"
                 placeholder="Message to #random"
+                type="text"
+                value=""
+              />
+            </div>
+            <button
+              class="message-submit btn btn-primary"
+              disabled=""
+              type="submit"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`check app 9`] = `
+<div
+  class="wrapper container-fluid h-100"
+>
+  <div
+    class="row h-100"
+  >
+    <div
+      class="w-25 h-100 pt-3 bg-dark"
+    >
+      <div
+        class="channels-list h-100"
+      >
+        <div
+          class="user-name pl-3 pr-3"
+        >
+          <p
+            class="h3 text-white"
+          >
+            User1
+          </p>
+        </div>
+        <div
+          class="nav flex-column nav-pills mb-3"
+        >
+          <a
+            class="nav-link text-white"
+            href="#"
+          >
+            # general
+          </a>
+          <a
+            class="nav-link text-white"
+            href="#"
+          >
+            # random
+          </a>
+          <a
+            class="nav-link text-white active"
+            href="#"
+          >
+            # job
+          </a>
+        </div>
+        <button
+          class="show-new-channel-modal-btn btn btn-primary ml-3"
+          type="button"
+        >
+          new
+        </button>
+      </div>
+    </div>
+    <div
+      class="col pt-3 pb-5 h-100 bg-light"
+    >
+      <div
+        class="chat d-flex flex-column justify-content-between h-100"
+      >
+        <div
+          class="chat-header d-flex mb-3"
+        >
+          <h2
+            class="chat-name mr-3"
+          >
+            #job
+          </h2>
+          <button
+            class="show-rename-channel-modal-btn btn btn-primary mr-3"
+            type="button"
+          >
+            edit
+          </button>
+          <button
+            class="show-remove-channel-modal-btn btn btn-danger"
+            type="button"
+          >
+            remove
+          </button>
+        </div>
+        <div
+          class="chat-messages col"
+        >
+          <div
+            class="card h-100"
+          >
+            <div
+              class="card-body"
+            />
+          </div>
+        </div>
+        <div
+          class="chat-input mt-3"
+        >
+          <form
+            class="form-inline"
+          >
+            <div
+              class="form-group w-50 mr-3"
+            >
+              <input
+                class="message-input form-control w-100"
+                name="message"
+                placeholder="Message to #job"
+                type="text"
+                value=""
+              />
+            </div>
+            <button
+              class="message-submit btn btn-primary"
+              disabled=""
+              type="submit"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`check app 10`] = `
+<div
+  class="wrapper container-fluid h-100"
+>
+  <div
+    class="row h-100"
+  >
+    <div
+      class="w-25 h-100 pt-3 bg-dark"
+    >
+      <div
+        class="channels-list h-100"
+      >
+        <div
+          class="user-name pl-3 pr-3"
+        >
+          <p
+            class="h3 text-white"
+          >
+            User1
+          </p>
+        </div>
+        <div
+          class="nav flex-column nav-pills mb-3"
+        >
+          <a
+            class="nav-link text-white"
+            href="#"
+          >
+            # general
+          </a>
+          <a
+            class="nav-link text-white"
+            href="#"
+          >
+            # random
+          </a>
+          <a
+            class="nav-link text-white active"
+            href="#"
+          >
+            # work
+          </a>
+        </div>
+        <button
+          class="show-new-channel-modal-btn btn btn-primary ml-3"
+          type="button"
+        >
+          new
+        </button>
+      </div>
+    </div>
+    <div
+      class="col pt-3 pb-5 h-100 bg-light"
+    >
+      <div
+        class="chat d-flex flex-column justify-content-between h-100"
+      >
+        <div
+          class="chat-header d-flex mb-3"
+        >
+          <h2
+            class="chat-name mr-3"
+          >
+            #work
+          </h2>
+          <button
+            class="show-rename-channel-modal-btn btn btn-primary mr-3"
+            type="button"
+          >
+            edit
+          </button>
+          <button
+            class="show-remove-channel-modal-btn btn btn-danger"
+            type="button"
+          >
+            remove
+          </button>
+        </div>
+        <div
+          class="chat-messages col"
+        >
+          <div
+            class="card h-100"
+          >
+            <div
+              class="card-body"
+            />
+          </div>
+        </div>
+        <div
+          class="chat-input mt-3"
+        >
+          <form
+            class="form-inline"
+          >
+            <div
+              class="form-group w-50 mr-3"
+            >
+              <input
+                class="message-input form-control w-100"
+                name="message"
+                placeholder="Message to #work"
+                type="text"
+                value=""
+              />
+            </div>
+            <button
+              class="message-submit btn btn-primary"
+              disabled=""
+              type="submit"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`check app 11`] = `
+<div
+  class="wrapper container-fluid h-100"
+>
+  <div
+    class="row h-100"
+  >
+    <div
+      class="w-25 h-100 pt-3 bg-dark"
+    >
+      <div
+        class="channels-list h-100"
+      >
+        <div
+          class="user-name pl-3 pr-3"
+        >
+          <p
+            class="h3 text-white"
+          >
+            User1
+          </p>
+        </div>
+        <div
+          class="nav flex-column nav-pills mb-3"
+        >
+          <a
+            class="nav-link text-white active"
+            href="#"
+          >
+            # general
+          </a>
+          <a
+            class="nav-link text-white"
+            href="#"
+          >
+            # random
+          </a>
+        </div>
+        <button
+          class="show-new-channel-modal-btn btn btn-primary ml-3"
+          type="button"
+        >
+          new
+        </button>
+      </div>
+    </div>
+    <div
+      class="col pt-3 pb-5 h-100 bg-light"
+    >
+      <div
+        class="chat d-flex flex-column justify-content-between h-100"
+      >
+        <div
+          class="chat-header d-flex mb-3"
+        >
+          <h2
+            class="chat-name mr-3"
+          >
+            #general
+          </h2>
+          <button
+            class="show-rename-channel-modal-btn btn btn-primary mr-3"
+            type="button"
+          >
+            edit
+          </button>
+        </div>
+        <div
+          class="chat-messages col"
+        >
+          <div
+            class="card h-100"
+          >
+            <div
+              class="card-body"
+            >
+              <div
+                class="message"
+              >
+                <div
+                  class="message-header"
+                >
+                  <span
+                    class="message-sender font-weight-bold"
+                  >
+                    User1 
+                  </span>
+                  <span
+                    class="message-time"
+                  >
+                    10:00
+                  </span>
+                </div>
+                <p
+                  class="pl-3 pr-3"
+                >
+                  hey!
+                </p>
+              </div>
+              <div
+                class="message"
+              >
+                <p
+                  class="pl-3 pr-3"
+                >
+                  how are you?
+                </p>
+              </div>
+              <div
+                class="message"
+              >
+                <div
+                  class="message-header"
+                >
+                  <span
+                    class="message-sender font-weight-bold"
+                  >
+                    User2 
+                  </span>
+                  <span
+                    class="message-time"
+                  >
+                    10:02
+                  </span>
+                </div>
+                <p
+                  class="pl-3 pr-3"
+                >
+                  i'm fine
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="chat-input mt-3"
+        >
+          <form
+            class="form-inline"
+          >
+            <div
+              class="form-group w-50 mr-3"
+            >
+              <input
+                class="message-input form-control w-100"
+                name="message"
+                placeholder="Message to #general"
                 type="text"
                 value=""
               />

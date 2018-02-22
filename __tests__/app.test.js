@@ -26,7 +26,7 @@ const getNextId = () => Number(_.uniqueId());
 const catchMessage = (channelId) => {
   nock('http://localhost')
     .post(`/api/v1/channels/${channelId}/messages`)
-    .reply(200, (uri, body) => {
+    .reply(201, (uri, body) => {
       const data = JSON.parse(body);
       const id = getNextId();
       const attributes = {
@@ -136,5 +136,62 @@ it('check app', async () => {
     },
   };
   mockServer.emit('newMessage', newMessage2);
+  expect(wrapper.render()).toMatchSnapshot();
+
+  const showNewChannelModalBtn = wrapper.find('.show-new-channel-modal-btn');
+  showNewChannelModalBtn.simulate('click');
+
+  const newChannelModal = wrapper.find('.new-channel-modal');
+  const newChannelInput = newChannelModal.find('input[name="channel-name"]');
+  const newChannelSubmitBtn = newChannelModal.find('button[type="submit"]');
+
+  newChannelInput.simulate('change', { target: { value: 'job' } });
+  nock('http://localhost')
+    .post('/api/v1/channels')
+    .reply(201, (uri, body) => {
+      const { data: { attributes: { name } } } = JSON.parse(body);
+      const channel = {
+        name,
+        removable: true,
+        id: getNextId(),
+      };
+
+      const response = {
+        data: {
+          type: 'channels',
+          id: channel.id,
+          attributes: channel,
+        },
+      };
+      return response;
+    });
+  newChannelSubmitBtn.simulate('submit');
+  await timeout(100);
+  expect(wrapper.render()).toMatchSnapshot();
+
+  const showRenameChannelModalBtn = wrapper.find('.show-rename-channel-modal-btn');
+  showRenameChannelModalBtn.simulate('click');
+
+  const renameChannelModal = wrapper.find('.rename-channel-modal');
+  const renameChannelInput = renameChannelModal.find('input[name="channel-name"]');
+  const renameChannelSubmit = renameChannelModal.find('button[type="submit"]');
+
+  renameChannelInput.simulate('change', { target: { value: 'work' } });
+  nock('http://localhost')
+    .patch('/api/v1/channels/6')
+    .reply(204);
+  renameChannelSubmit.simulate('submit');
+  await timeout(100);
+  expect(wrapper.render()).toMatchSnapshot();
+
+  const showRemoveChannelModalBtn = wrapper.find('.show-remove-channel-modal-btn');
+  showRemoveChannelModalBtn.simulate('click');
+
+  const removeChannelConfirmBtn = wrapper.find('button.remove-channel-confirm-btn');
+  nock('http://localhost')
+    .delete('/api/v1/channels/6')
+    .reply(204);
+  removeChannelConfirmBtn.simulate('click');
+  await timeout(100);
   expect(wrapper.render()).toMatchSnapshot();
 });
