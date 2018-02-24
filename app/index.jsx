@@ -8,12 +8,12 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import faker from 'faker/locale/en';
 import cookies from 'js-cookie';
 import io from 'socket.io-client';
+import gon from 'gon'; // eslint-disable-line
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/application.css';
 
 import addSocketHandlers from './socket';
-import gon from 'gon'; // eslint-disable-line
 import App from './components/App.jsx';
 import reducers from './reducers';
 

@@ -1,4 +1,4 @@
-import { getMessage } from './actions';
+import * as actions from './actions';
 import getLogger from '../lib/logger';
 
 export default (socket, dispatch, userName) => {
@@ -14,6 +14,18 @@ export default (socket, dispatch, userName) => {
       return;
     }
 
-    dispatch(getMessage({ message }));
+    dispatch(actions.getMessage({ message }));
   });
+
+  // socket.on('newChannel', ({ data: { attributes: channel } }) => {
+  //   dispatch(actions.getNewChannel({ channel }));
+  // });
+
+  // socket.on('renameChannel', ({ data: { attributes: channel } }) => {
+  //   dispatch(actions.getRenameChannel({ channel }));
+  // });
+
+  // socket.on('removeChannel', ({ data: { attributes: channel } }) => {
+  //   dispatch(actions.getRemoveChannel({ channel }));
+  // });
 };

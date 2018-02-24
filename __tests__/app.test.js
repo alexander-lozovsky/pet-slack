@@ -153,7 +153,7 @@ it('check app', async () => {
       const channel = {
         name,
         removable: true,
-        id: getNextId(),
+        id: 3,
       };
 
       const response = {
@@ -175,10 +175,11 @@ it('check app', async () => {
   const renameChannelModal = wrapper.find('.rename-channel-modal');
   const renameChannelInput = renameChannelModal.find('input[name="channel-name"]');
   const renameChannelSubmit = renameChannelModal.find('button[type="submit"]');
+  expect(renameChannelInput.props().value).toEqual('job');
 
   renameChannelInput.simulate('change', { target: { value: 'work' } });
   nock('http://localhost')
-    .patch('/api/v1/channels/6')
+    .patch('/api/v1/channels/3')
     .reply(204);
   renameChannelSubmit.simulate('submit');
   await timeout(100);
@@ -189,7 +190,7 @@ it('check app', async () => {
 
   const removeChannelConfirmBtn = wrapper.find('button.remove-channel-confirm-btn');
   nock('http://localhost')
-    .delete('/api/v1/channels/6')
+    .delete('/api/v1/channels/3')
     .reply(204);
   removeChannelConfirmBtn.simulate('click');
   await timeout(100);

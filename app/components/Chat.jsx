@@ -83,7 +83,7 @@ export default class Chat extends React.Component {
           </Modal.Header>
 
           <Modal.Body>
-            <RenameChannelForm name={this.props.currentChannel.name}/>
+            <RenameChannelForm initialValues={{ 'channel-name': this.props.currentChannel.name }} />
           </Modal.Body>
         </Modal.Dialog>
       </div>

@@ -11,7 +11,7 @@ exports[`check app 1`] = `
       class="w-25 h-100 pt-3 bg-dark"
     >
       <div
-        class="channels-list h-100"
+        class="channels-list d-flex flex-column  h-100"
       >
         <div
           class="user-name pl-3 pr-3"
@@ -23,27 +23,31 @@ exports[`check app 1`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills mb-3"
+          class="channels-manage pb-3"
         >
-          <a
-            class="nav-link text-white active"
-            href="#"
+          <div
+            class="nav flex-column nav-pills mb-3"
           >
-            # general
-          </a>
-          <a
-            class="nav-link text-white"
-            href="#"
+            <a
+              class="nav-link text-white active"
+              href="#"
+            >
+              # general
+            </a>
+            <a
+              class="nav-link text-white"
+              href="#"
+            >
+              # random
+            </a>
+          </div>
+          <button
+            class="show-new-channel-modal-btn btn btn-primary ml-3"
+            type="button"
           >
-            # random
-          </a>
+            new
+          </button>
         </div>
-        <button
-          class="show-new-channel-modal-btn btn btn-primary ml-3"
-          type="button"
-        >
-          new
-        </button>
       </div>
     </div>
     <div
@@ -121,7 +125,7 @@ exports[`check app 2`] = `
       class="w-25 h-100 pt-3 bg-dark"
     >
       <div
-        class="channels-list h-100"
+        class="channels-list d-flex flex-column  h-100"
       >
         <div
           class="user-name pl-3 pr-3"
@@ -133,27 +137,31 @@ exports[`check app 2`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills mb-3"
+          class="channels-manage pb-3"
         >
-          <a
-            class="nav-link text-white active"
-            href="#"
+          <div
+            class="nav flex-column nav-pills mb-3"
           >
-            # general
-          </a>
-          <a
-            class="nav-link text-white"
-            href="#"
+            <a
+              class="nav-link text-white active"
+              href="#"
+            >
+              # general
+            </a>
+            <a
+              class="nav-link text-white"
+              href="#"
+            >
+              # random
+            </a>
+          </div>
+          <button
+            class="show-new-channel-modal-btn btn btn-primary ml-3"
+            type="button"
           >
-            # random
-          </a>
+            new
+          </button>
         </div>
-        <button
-          class="show-new-channel-modal-btn btn btn-primary ml-3"
-          type="button"
-        >
-          new
-        </button>
       </div>
     </div>
     <div
@@ -230,7 +238,7 @@ exports[`check app 3`] = `
       class="w-25 h-100 pt-3 bg-dark"
     >
       <div
-        class="channels-list h-100"
+        class="channels-list d-flex flex-column  h-100"
       >
         <div
           class="user-name pl-3 pr-3"
@@ -242,27 +250,31 @@ exports[`check app 3`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills mb-3"
+          class="channels-manage pb-3"
         >
-          <a
-            class="nav-link text-white active"
-            href="#"
+          <div
+            class="nav flex-column nav-pills mb-3"
           >
-            # general
-          </a>
-          <a
-            class="nav-link text-white"
-            href="#"
+            <a
+              class="nav-link text-white active"
+              href="#"
+            >
+              # general
+            </a>
+            <a
+              class="nav-link text-white"
+              href="#"
+            >
+              # random
+            </a>
+          </div>
+          <button
+            class="show-new-channel-modal-btn btn btn-primary ml-3"
+            type="button"
           >
-            # random
-          </a>
+            new
+          </button>
         </div>
-        <button
-          class="show-new-channel-modal-btn btn btn-primary ml-3"
-          type="button"
-        >
-          new
-        </button>
       </div>
     </div>
     <div
@@ -364,7 +376,7 @@ exports[`check app 4`] = `
       class="w-25 h-100 pt-3 bg-dark"
     >
       <div
-        class="channels-list h-100"
+        class="channels-list d-flex flex-column  h-100"
       >
         <div
           class="user-name pl-3 pr-3"
@@ -376,27 +388,31 @@ exports[`check app 4`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills mb-3"
+          class="channels-manage pb-3"
         >
-          <a
-            class="nav-link text-white active"
-            href="#"
+          <div
+            class="nav flex-column nav-pills mb-3"
           >
-            # general
-          </a>
-          <a
-            class="nav-link text-white"
-            href="#"
+            <a
+              class="nav-link text-white active"
+              href="#"
+            >
+              # general
+            </a>
+            <a
+              class="nav-link text-white"
+              href="#"
+            >
+              # random
+            </a>
+          </div>
+          <button
+            class="show-new-channel-modal-btn btn btn-primary ml-3"
+            type="button"
           >
-            # random
-          </a>
+            new
+          </button>
         </div>
-        <button
-          class="show-new-channel-modal-btn btn btn-primary ml-3"
-          type="button"
-        >
-          new
-        </button>
       </div>
     </div>
     <div
@@ -507,7 +523,7 @@ exports[`check app 5`] = `
       class="w-25 h-100 pt-3 bg-dark"
     >
       <div
-        class="channels-list h-100"
+        class="channels-list d-flex flex-column  h-100"
       >
         <div
           class="user-name pl-3 pr-3"
@@ -519,27 +535,31 @@ exports[`check app 5`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills mb-3"
+          class="channels-manage pb-3"
         >
-          <a
-            class="nav-link text-white active"
-            href="#"
+          <div
+            class="nav flex-column nav-pills mb-3"
           >
-            # general
-          </a>
-          <a
-            class="nav-link text-white"
-            href="#"
+            <a
+              class="nav-link text-white active"
+              href="#"
+            >
+              # general
+            </a>
+            <a
+              class="nav-link text-white"
+              href="#"
+            >
+              # random
+            </a>
+          </div>
+          <button
+            class="show-new-channel-modal-btn btn btn-primary ml-3"
+            type="button"
           >
-            # random
-          </a>
+            new
+          </button>
         </div>
-        <button
-          class="show-new-channel-modal-btn btn btn-primary ml-3"
-          type="button"
-        >
-          new
-        </button>
       </div>
     </div>
     <div
@@ -673,7 +693,7 @@ exports[`check app 6`] = `
       class="w-25 h-100 pt-3 bg-dark"
     >
       <div
-        class="channels-list h-100"
+        class="channels-list d-flex flex-column  h-100"
       >
         <div
           class="user-name pl-3 pr-3"
@@ -685,27 +705,31 @@ exports[`check app 6`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills mb-3"
+          class="channels-manage pb-3"
         >
-          <a
-            class="nav-link text-white"
-            href="#"
+          <div
+            class="nav flex-column nav-pills mb-3"
           >
-            # general
-          </a>
-          <a
-            class="nav-link text-white active"
-            href="#"
+            <a
+              class="nav-link text-white"
+              href="#"
+            >
+              # general
+            </a>
+            <a
+              class="nav-link text-white active"
+              href="#"
+            >
+              # random
+            </a>
+          </div>
+          <button
+            class="show-new-channel-modal-btn btn btn-primary ml-3"
+            type="button"
           >
-            # random
-          </a>
+            new
+          </button>
         </div>
-        <button
-          class="show-new-channel-modal-btn btn btn-primary ml-3"
-          type="button"
-        >
-          new
-        </button>
       </div>
     </div>
     <div
@@ -783,7 +807,7 @@ exports[`check app 7`] = `
       class="w-25 h-100 pt-3 bg-dark"
     >
       <div
-        class="channels-list h-100"
+        class="channels-list d-flex flex-column  h-100"
       >
         <div
           class="user-name pl-3 pr-3"
@@ -795,27 +819,31 @@ exports[`check app 7`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills mb-3"
+          class="channels-manage pb-3"
         >
-          <a
-            class="nav-link text-white"
-            href="#"
+          <div
+            class="nav flex-column nav-pills mb-3"
           >
-            # general
-          </a>
-          <a
-            class="nav-link text-white active"
-            href="#"
+            <a
+              class="nav-link text-white"
+              href="#"
+            >
+              # general
+            </a>
+            <a
+              class="nav-link text-white active"
+              href="#"
+            >
+              # random
+            </a>
+          </div>
+          <button
+            class="show-new-channel-modal-btn btn btn-primary ml-3"
+            type="button"
           >
-            # random
-          </a>
+            new
+          </button>
         </div>
-        <button
-          class="show-new-channel-modal-btn btn btn-primary ml-3"
-          type="button"
-        >
-          new
-        </button>
       </div>
     </div>
     <div
@@ -917,7 +945,7 @@ exports[`check app 8`] = `
       class="w-25 h-100 pt-3 bg-dark"
     >
       <div
-        class="channels-list h-100"
+        class="channels-list d-flex flex-column  h-100"
       >
         <div
           class="user-name pl-3 pr-3"
@@ -929,27 +957,31 @@ exports[`check app 8`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills mb-3"
+          class="channels-manage pb-3"
         >
-          <a
-            class="nav-link text-white"
-            href="#"
+          <div
+            class="nav flex-column nav-pills mb-3"
           >
-            # general
-          </a>
-          <a
-            class="nav-link text-white active"
-            href="#"
+            <a
+              class="nav-link text-white"
+              href="#"
+            >
+              # general
+            </a>
+            <a
+              class="nav-link text-white active"
+              href="#"
+            >
+              # random
+            </a>
+          </div>
+          <button
+            class="show-new-channel-modal-btn btn btn-primary ml-3"
+            type="button"
           >
-            # random
-          </a>
+            new
+          </button>
         </div>
-        <button
-          class="show-new-channel-modal-btn btn btn-primary ml-3"
-          type="button"
-        >
-          new
-        </button>
       </div>
     </div>
     <div
@@ -1074,7 +1106,7 @@ exports[`check app 9`] = `
       class="w-25 h-100 pt-3 bg-dark"
     >
       <div
-        class="channels-list h-100"
+        class="channels-list d-flex flex-column  h-100"
       >
         <div
           class="user-name pl-3 pr-3"
@@ -1086,33 +1118,37 @@ exports[`check app 9`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills mb-3"
+          class="channels-manage pb-3"
         >
-          <a
-            class="nav-link text-white"
-            href="#"
+          <div
+            class="nav flex-column nav-pills mb-3"
           >
-            # general
-          </a>
-          <a
-            class="nav-link text-white"
-            href="#"
+            <a
+              class="nav-link text-white"
+              href="#"
+            >
+              # general
+            </a>
+            <a
+              class="nav-link text-white"
+              href="#"
+            >
+              # random
+            </a>
+            <a
+              class="nav-link text-white active"
+              href="#"
+            >
+              # job
+            </a>
+          </div>
+          <button
+            class="show-new-channel-modal-btn btn btn-primary ml-3"
+            type="button"
           >
-            # random
-          </a>
-          <a
-            class="nav-link text-white active"
-            href="#"
-          >
-            # job
-          </a>
+            new
+          </button>
         </div>
-        <button
-          class="show-new-channel-modal-btn btn btn-primary ml-3"
-          type="button"
-        >
-          new
-        </button>
       </div>
     </div>
     <div
@@ -1196,7 +1232,7 @@ exports[`check app 10`] = `
       class="w-25 h-100 pt-3 bg-dark"
     >
       <div
-        class="channels-list h-100"
+        class="channels-list d-flex flex-column  h-100"
       >
         <div
           class="user-name pl-3 pr-3"
@@ -1208,33 +1244,37 @@ exports[`check app 10`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills mb-3"
+          class="channels-manage pb-3"
         >
-          <a
-            class="nav-link text-white"
-            href="#"
+          <div
+            class="nav flex-column nav-pills mb-3"
           >
-            # general
-          </a>
-          <a
-            class="nav-link text-white"
-            href="#"
+            <a
+              class="nav-link text-white"
+              href="#"
+            >
+              # general
+            </a>
+            <a
+              class="nav-link text-white"
+              href="#"
+            >
+              # random
+            </a>
+            <a
+              class="nav-link text-white active"
+              href="#"
+            >
+              # work
+            </a>
+          </div>
+          <button
+            class="show-new-channel-modal-btn btn btn-primary ml-3"
+            type="button"
           >
-            # random
-          </a>
-          <a
-            class="nav-link text-white active"
-            href="#"
-          >
-            # work
-          </a>
+            new
+          </button>
         </div>
-        <button
-          class="show-new-channel-modal-btn btn btn-primary ml-3"
-          type="button"
-        >
-          new
-        </button>
       </div>
     </div>
     <div
@@ -1318,7 +1358,7 @@ exports[`check app 11`] = `
       class="w-25 h-100 pt-3 bg-dark"
     >
       <div
-        class="channels-list h-100"
+        class="channels-list d-flex flex-column  h-100"
       >
         <div
           class="user-name pl-3 pr-3"
@@ -1330,27 +1370,31 @@ exports[`check app 11`] = `
           </p>
         </div>
         <div
-          class="nav flex-column nav-pills mb-3"
+          class="channels-manage pb-3"
         >
-          <a
-            class="nav-link text-white active"
-            href="#"
+          <div
+            class="nav flex-column nav-pills mb-3"
           >
-            # general
-          </a>
-          <a
-            class="nav-link text-white"
-            href="#"
+            <a
+              class="nav-link text-white active"
+              href="#"
+            >
+              # general
+            </a>
+            <a
+              class="nav-link text-white"
+              href="#"
+            >
+              # random
+            </a>
+          </div>
+          <button
+            class="show-new-channel-modal-btn btn btn-primary ml-3"
+            type="button"
           >
-            # random
-          </a>
+            new
+          </button>
         </div>
-        <button
-          class="show-new-channel-modal-btn btn btn-primary ml-3"
-          type="button"
-        >
-          new
-        </button>
       </div>
     </div>
     <div

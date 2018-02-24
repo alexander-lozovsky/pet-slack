@@ -2,6 +2,6 @@ html, body, #app-container {
   height: 100%;
 }
 
-.card-body {
+.card-body, .channels-manage {
   overflow-y: auto;
 }
