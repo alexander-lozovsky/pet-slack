@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
   const props = {
     channelRenamingState: state.channelRenamingState,
     channelRemovingState: state.channelRemovingState,
-    showModal: state.uiState.showModal,
+    modalShowing: state.uiState.modalShowing,
   };
 
   return props;
@@ -33,44 +33,40 @@ export default class ChannelManage extends React.Component {
 
   renderModalRenameChannel = () =>
     (
-      <div className="rename-channel-modal static-modal">
-        <Modal.Dialog>
-          <Modal.Header>
-            <Modal.Title>Rename channel</Modal.Title>
-          </Modal.Header>
+      <Modal show={true} onHide={this.handleCloseModal}>
+        <Modal.Header>
+          <Modal.Title>Rename channel</Modal.Title>
+        </Modal.Header>
 
-          <Modal.Body>
-            <RenameChannelForm initialValues={{ 'channel-name': this.props.currentChannel.name }} />
-            {this.props.channelRenamingState === 'failed'
-              && <div className="alert alert-danger mt-3" role="alert">Connection error</div>}
-          </Modal.Body>
-        </Modal.Dialog>
-      </div>
+        <Modal.Body>
+          <RenameChannelForm initialValues={{ 'channel-name': this.props.currentChannel.name }} />
+          {this.props.channelRenamingState === 'failed'
+            && <div className="alert alert-danger mt-3" role="alert">Connection error</div>}
+        </Modal.Body>
+      </Modal>
     );
 
   renderModalRemoveChannel = () =>
     (
-      <div className="remove-channel-modal static-modal">
-        <Modal.Dialog>
-          <Modal.Header>
-            <Modal.Title>{`Remove ${this.props.currentChannel.name}`}</Modal.Title>
-          </Modal.Header>
+      <Modal show={true} onHide={this.handleCloseModal}>
+        <Modal.Header>
+          <Modal.Title>{`Remove ${this.props.currentChannel.name}`}</Modal.Title>
+        </Modal.Header>
 
-          <Modal.Body>{`Do you really want to remove ${this.props.currentChannel.name}?`}</Modal.Body>
+        <Modal.Body>{`Do you really want to remove ${this.props.currentChannel.name}?`}</Modal.Body>
 
-          <Modal.Footer>
-            <Button onClick={this.handleRemoveChannel}
-              className="remove-channel-confirm-btn" bsStyle="danger">Remove</Button>
-            <Button onClick={this.handleCloseModal}>Close</Button>
-          </Modal.Footer>
-            {this.props.channelRemovingState === 'failed'
-                && <div className="alert alert-danger mt-3" role="alert">Connection error</div>}
-        </Modal.Dialog>
-      </div>
+        <Modal.Footer>
+          <Button onClick={this.handleRemoveChannel}
+            className="remove-channel-confirm-btn" bsStyle="danger">Remove</Button>
+          <Button onClick={this.handleCloseModal}>Close</Button>
+        </Modal.Footer>
+          {this.props.channelRemovingState === 'failed'
+            && <div className="alert alert-danger mt-3" role="alert">Connection error</div>}
+      </Modal>
     );
 
   render() {
-    const { currentChannel, showModal } = this.props;
+    const { currentChannel, modalShowing } = this.props;
     return (
       <div className='chat-header d-flex mb-3'>
         <h2 className="chat-name mr-3">{`#${currentChannel.name}`}</h2>
@@ -80,8 +76,8 @@ export default class ChannelManage extends React.Component {
         {currentChannel.removable ?
           <button onClick={this.handleShowRemoveModal} type="button"
             className="show-remove-channel-modal-btn btn btn-danger">remove</button> : null}
-        {(showModal === 'editChannel' && this.renderModalRenameChannel()) ||
-          (showModal === 'removeChannel' && this.renderModalRemoveChannel())}
+        {(modalShowing === 'editChannel' && this.renderModalRenameChannel()) ||
+          (modalShowing === 'removeChannel' && this.renderModalRemoveChannel())}
       </div>
     );
   }

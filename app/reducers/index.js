@@ -86,7 +86,7 @@ const currentChannelId = handleActions({
   },
 }, 0);
 
-const showModal = handleActions({
+const modalShowing = handleActions({
   [actions.showModalNewChannel]() {
     return 'newChannel';
   },
@@ -110,7 +110,7 @@ const showModal = handleActions({
   },
 }, 'none');
 
-const uiState = combineReducers({ showModal });
+const uiState = combineReducers({ modalShowing });
 
 export default combineReducers({
   messageCreatingState,

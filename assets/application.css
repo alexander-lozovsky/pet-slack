@@ -13,3 +13,7 @@ html, body, #app-container {
 .modal-backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.modal-dialog {
+  padding-top: 80px;
+}

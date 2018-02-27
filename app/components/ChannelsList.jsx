@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
   const props = {
     channels: state.channels,
     currentChannelId: state.currentChannelId,
-    showModal: state.uiState.showModal,
+    modalShowing: state.uiState.modalShowing,
     channelCreatingState: state.channelCreatingState,
   };
 
@@ -21,6 +21,10 @@ export default class ChannelsList extends React.Component {
     this.props.showModalNewChannel();
   }
 
+  handleCloseModal = () => {
+    this.props.closeModal();
+  }
+
   switchChannel = id => (e) => {
     e.preventDefault();
     this.props.switchChannel({ id });
@@ -28,19 +32,17 @@ export default class ChannelsList extends React.Component {
 
   renderModalNew = () =>
     (
-      <div className="new-channel-modal static-modal">
-        <Modal.Dialog>
-          <Modal.Header>
-            <Modal.Title>New channel</Modal.Title>
-          </Modal.Header>
+      <Modal show={true} onHide={this.handleCloseModal}>
+        <Modal.Header>
+          <Modal.Title>New channel</Modal.Title>
+        </Modal.Header>
 
-          <Modal.Body>
-            <NewChannelForm />
-            {this.props.channelCreatingState === 'failed'
-              && <div className="alert alert-danger mt-3" role="alert">Connection error</div>}
-          </Modal.Body>
-        </Modal.Dialog>
-      </div>
+        <Modal.Body>
+          <NewChannelForm />
+          {this.props.channelCreatingState === 'failed'
+            && <div className="alert alert-danger mt-3" role="alert">Connection error</div>}
+        </Modal.Body>
+      </Modal>
     );
 
   render() {
@@ -63,7 +65,7 @@ export default class ChannelsList extends React.Component {
               return <a onClick={this.switchChannel(id)} className={channelClass} href="#" key={id}>{`# ${name}`}</a>;
             })}
           </div>
-          {this.props.showModal === 'newChannel' && this.renderModalNew()}
+          {this.props.modalShowing === 'newChannel' && this.renderModalNew()}
           <button onClick={this.handleShowNewChannel}
             type="button" className="show-new-channel-modal-btn btn btn-primary ml-3">new</button>
         </div>
