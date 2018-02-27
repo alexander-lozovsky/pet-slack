@@ -4,11 +4,12 @@ import cn from 'classnames';
 import NewChannelForm from './NewChannelForm.jsx';
 import connect from '../connect';
 
-const mapStateToProps = ({ channels, currentChannelId, uiState: { showModal } }) => {
+const mapStateToProps = (state) => {
   const props = {
-    channels,
-    currentChannelId,
-    showModal,
+    channels: state.channels,
+    currentChannelId: state.currentChannelId,
+    showModal: state.uiState.showModal,
+    channelCreatingState: state.channelCreatingState,
   };
 
   return props;
@@ -16,10 +17,6 @@ const mapStateToProps = ({ channels, currentChannelId, uiState: { showModal } })
 
 @connect(mapStateToProps)
 export default class ChannelsList extends React.Component {
-  handleCloseModal = () => {
-    this.props.closeModal();
-  }
-
   handleShowNewChannel = () => {
     this.props.showModalNewChannel();
   }
@@ -39,6 +36,8 @@ export default class ChannelsList extends React.Component {
 
           <Modal.Body>
             <NewChannelForm />
+            {this.props.channelCreatingState === 'failed'
+              && <div className="alert alert-danger mt-3" role="alert">Connection error</div>}
           </Modal.Body>
         </Modal.Dialog>
       </div>

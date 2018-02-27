@@ -5,3 +5,11 @@ html, body, #app-container {
 .card-body, .channels-manage {
   overflow-y: auto;
 }
+
+.fade.in {
+  opacity: 1
+}
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}

@@ -99,6 +99,15 @@ const showModal = handleActions({
   [actions.closeModal]() {
     return 'none';
   },
+  [actions.sendNewChannelSuccess]() {
+    return 'none';
+  },
+  [actions.sendRenameChannelSuccess]() {
+    return 'none';
+  },
+  [actions.sendRemoveChannelSuccess]() {
+    return 'none';
+  },
 }, 'none');
 
 const uiState = combineReducers({ showModal });

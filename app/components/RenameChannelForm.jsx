@@ -20,8 +20,6 @@ class RenameChannelForm extends React.Component {
   renameChannel = (state) => {
     const { currentChannelId, sendRenameChannel } = this.props;
     sendRenameChannel(currentChannelId, state['channel-name']);
-    this.props.closeModal();
-    this.props.reset();
   }
 
   render() {
