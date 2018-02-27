@@ -17,15 +17,18 @@ export default (socket, dispatch, userName) => {
     dispatch(actions.getMessage({ message }));
   });
 
-  // socket.on('newChannel', ({ data: { attributes: channel } }) => {
-  //   dispatch(actions.getNewChannel({ channel }));
-  // });
+  socket.on('newChannel', ({ data: { attributes: channel } }) => {
+    logger(`get new channel: ${channel.name}`);
+    dispatch(actions.getNewChannel({ channel }));
+  });
 
-  // socket.on('renameChannel', ({ data: { attributes: channel } }) => {
-  //   dispatch(actions.getRenameChannel({ channel }));
-  // });
+  socket.on('renameChannel', ({ data: { attributes: { id, name } } }) => {
+    logger(`get rename channel: ${name}`);
+    dispatch(actions.getRenameChannel({ id, name }));
+  });
 
-  // socket.on('removeChannel', ({ data: { attributes: channel } }) => {
-  //   dispatch(actions.getRemoveChannel({ channel }));
-  // });
+  socket.on('removeChannel', ({ data: { id } }) => {
+    logger(`get remove channel: ${id}`);
+    dispatch(actions.getRemoveChannel({ id }));
+  });
 };

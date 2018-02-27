@@ -58,10 +58,20 @@ const messages = handleActions({
   [actions.sendMessageSuccess](state, { payload: { message } }) {
     return [...state, message];
   },
+  [actions.sendRemoveChannelSuccess](state, { payload: { id } }) {
+    return state.filter(item => item.channelId !== id);
+  },
+  [actions.getRemoveChannel](state, { payload: { id } }) {
+    return state.filter(item => item.channelId !== id);
+  },
 }, []);
 
 const channels = handleActions({
   [actions.sendNewChannelSuccess](state, { payload: { channel } }) {
+    if (state.find(item => item.id === channel.id)) {
+      return state;
+    }
+
     return [...state, channel];
   },
   [actions.sendRenameChannelSuccess](state, { payload: { id, name } }) {
@@ -70,6 +80,21 @@ const channels = handleActions({
     return [...state];
   },
   [actions.sendRemoveChannelSuccess](state, { payload: { id } }) {
+    return state.filter(item => item.id !== id);
+  },
+  [actions.getNewChannel](state, { payload: { channel } }) {
+    if (state.find(item => item.id === channel.id)) {
+      return state;
+    }
+
+    return [...state, channel];
+  },
+  [actions.getRenameChannel](state, { payload: { id, name } }) {
+    const editedChannel = state.find(item => item.id === id);
+    editedChannel.name = name;
+    return [...state];
+  },
+  [actions.getRemoveChannel](state, { payload: { id } }) {
     return state.filter(item => item.id !== id);
   },
 }, []);
@@ -82,6 +107,13 @@ const currentChannelId = handleActions({
     return channel.id;
   },
   [actions.sendRemoveChannelSuccess]() {
+    return 1;
+  },
+  [actions.getRemoveChannel](state, { payload: { id } }) {
+    if (state !== id) {
+      return state;
+    }
+
     return 1;
   },
 }, 0);
