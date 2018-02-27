@@ -32,7 +32,7 @@ export default class ChannelsList extends React.Component {
 
   renderModalNew = () =>
     (
-      <Modal show={true} onHide={this.handleCloseModal}>
+      <Modal show={true} onHide={this.handleCloseModal} className="new-channel-modal">
         <Modal.Header>
           <Modal.Title>New channel</Modal.Title>
         </Modal.Header>

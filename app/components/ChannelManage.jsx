@@ -33,7 +33,7 @@ export default class ChannelManage extends React.Component {
 
   renderModalRenameChannel = () =>
     (
-      <Modal show={true} onHide={this.handleCloseModal}>
+      <Modal show={true} onHide={this.handleCloseModal} className="rename-channel-modal">
         <Modal.Header>
           <Modal.Title>Rename channel</Modal.Title>
         </Modal.Header>
@@ -48,7 +48,7 @@ export default class ChannelManage extends React.Component {
 
   renderModalRemoveChannel = () =>
     (
-      <Modal show={true} onHide={this.handleCloseModal}>
+      <Modal show={true} onHide={this.handleCloseModal} className="remove-channel-modal">
         <Modal.Header>
           <Modal.Title>{`Remove ${this.props.currentChannel.name}`}</Modal.Title>
         </Modal.Header>
