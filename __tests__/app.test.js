@@ -195,4 +195,25 @@ it('check app', async () => {
   removeChannelConfirmBtn.simulate('click');
   await timeout(100);
   expect(wrapper.render()).toMatchSnapshot();
+
+  const newChannel = {
+    data: {
+      type: 'channels',
+      id: 4,
+      attributes: {
+        id: 4,
+        name: 'help',
+        removable: true,
+      },
+    },
+  };
+  mockServer.emit('newChannel', newChannel);
+  expect(wrapper.render()).toMatchSnapshot();
+
+  newChannel.data.attributes.name = 'help me';
+  mockServer.emit('renameChannel', newChannel);
+  expect(wrapper.render()).toMatchSnapshot();
+
+  mockServer.emit('removedChannel', { data: { type: 'channels', id: 4 } });
+  expect(wrapper.render()).toMatchSnapshot();
 });
