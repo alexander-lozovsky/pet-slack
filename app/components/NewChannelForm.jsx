@@ -9,7 +9,8 @@ const mapStateToProps = ({ channelCreatingState }) => {
 };
 
 @connect(mapStateToProps)
-class NewChannelForm extends React.Component {
+@reduxForm({ form: 'newChannel' })
+export default class NewChannelForm extends React.Component {
   handleCloseModal = () => {
     this.props.closeModal();
   }
@@ -36,7 +37,3 @@ class NewChannelForm extends React.Component {
     );
   }
 }
-
-export default reduxForm({
-  form: 'newChannel',
-})(NewChannelForm);

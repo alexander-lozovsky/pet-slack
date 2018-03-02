@@ -12,7 +12,8 @@ const mapStateToProps = ({ currentChannelId, channelRenamingState }) => {
 };
 
 @connect(mapStateToProps)
-class RenameChannelForm extends React.Component {
+@reduxForm({ form: 'renameChannel' })
+export default class RenameChannelForm extends React.Component {
   handleCloseModal = () => {
     this.props.closeModal();
   }
@@ -40,7 +41,3 @@ class RenameChannelForm extends React.Component {
     );
   }
 }
-
-export default reduxForm({
-  form: 'renameChannel',
-})(RenameChannelForm);

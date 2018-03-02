@@ -9,7 +9,8 @@ const mapStateToProps = ({ messageCreatingState, currentChannelId }) => {
 };
 
 @connect(mapStateToProps)
-class NewMessageForm extends React.Component {
+@reduxForm({ form: 'newMessage' })
+export default class NewMessageForm extends React.Component {
   addMessage = ({ message }) => {
     const { userName, currentChannelId } = this.props;
     this.props.addMessage(message, userName, currentChannelId);
@@ -31,7 +32,3 @@ class NewMessageForm extends React.Component {
     );
   }
 }
-
-export default reduxForm({
-  form: 'newMessage',
-})(NewMessageForm);
