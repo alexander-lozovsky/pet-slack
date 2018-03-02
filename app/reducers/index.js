@@ -4,53 +4,18 @@ import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import * as actions from '../actions';
 
-const messageCreatingState = handleActions({
-  [actions.addMessageRequest]() {
-    return 'requested';
-  },
-  [actions.addMessageSuccess]() {
-    return 'successed';
-  },
-  [actions.addMessageFailure]() {
-    return 'failed';
-  },
-}, 'none');
-
-const channelCreatingState = handleActions({
-  [actions.addChannelRequest]() {
-    return 'requested';
-  },
-  [actions.addChannelSuccess]() {
-    return 'successed';
-  },
-  [actions.addChannelFailure]() {
-    return 'failed';
-  },
-}, 'none');
-
-const channelRenamingState = handleActions({
-  [actions.renameChannelRequest]() {
-    return 'requested';
-  },
-  [actions.renameChannelSuccess]() {
-    return 'successed';
-  },
-  [actions.renameChannelFailure]() {
-    return 'failed';
-  },
-}, 'none');
-
-const channelRemovingState = handleActions({
-  [actions.removeChannelRequest]() {
-    return 'requested';
-  },
-  [actions.removeChannelSuccess]() {
-    return 'successed';
-  },
-  [actions.removeChannelFailure]() {
-    return 'failed';
-  },
-}, 'none');
+const createRequestStateReducer = action =>
+  handleActions({
+    [actions[`${action}Request`]]() {
+      return 'requested';
+    },
+    [actions[`${action}Success`]]() {
+      return 'successed';
+    },
+    [actions[`${action}Failure`]]() {
+      return 'failed';
+    },
+  }, 'none');
 
 const messages = handleActions({
   [actions.getMessage](state, { payload: { message } }) {
@@ -138,10 +103,10 @@ const activeModal = handleActions({
 const uiState = combineReducers({ activeModal });
 
 export default combineReducers({
-  messageCreatingState,
-  channelCreatingState,
-  channelRenamingState,
-  channelRemovingState,
+  messageCreatingState: createRequestStateReducer('addMessage'),
+  channelCreatingState: createRequestStateReducer('addChannel'),
+  channelRenamingState: createRequestStateReducer('renameChannel'),
+  channelRemovingState: createRequestStateReducer('removeChannel'),
   channels,
   messages,
   currentChannelId,
