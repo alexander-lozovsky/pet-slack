@@ -60,12 +60,10 @@ const messages = handleActions({
     return { ...state, [message.id]: message };
   },
   [actions.removeChannelSuccess](state, { payload: { id } }) {
-    const filtered = Object.values(state).filter(item => item.channelId !== id);
-    return { ...filtered };
+    return Object.values(state).filter(item => item.channelId !== id);
   },
   [actions.getRemovedChannel](state, { payload: { id } }) {
-    const filtered = Object.values(state).filter(item => item.channelId !== id);
-    return { ...filtered };
+    return Object.values(state).filter(item => item.channelId !== id);
   },
 }, {});
 
