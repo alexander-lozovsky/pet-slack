@@ -12,7 +12,7 @@ const mapStateToProps = ({ messageCreatingState, currentChannelId }) => {
 class NewMessageForm extends React.Component {
   addMessage = ({ message }) => {
     const { userName, currentChannelId } = this.props;
-    this.props.sendMessage(message, userName, currentChannelId);
+    this.props.addMessage(message, userName, currentChannelId);
     this.props.reset();
   }
 

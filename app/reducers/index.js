@@ -5,49 +5,49 @@ import { reducer as formReducer } from 'redux-form';
 import * as actions from '../actions';
 
 const messageCreatingState = handleActions({
-  [actions.sendMessageRequest]() {
+  [actions.addMessageRequest]() {
     return 'requested';
   },
-  [actions.sendMessageSuccess]() {
+  [actions.addMessageSuccess]() {
     return 'successed';
   },
-  [actions.sendMessageFailure]() {
+  [actions.addMessageFailure]() {
     return 'failed';
   },
 }, 'none');
 
 const channelCreatingState = handleActions({
-  [actions.sendNewChannelRequest]() {
+  [actions.addChannelRequest]() {
     return 'requested';
   },
-  [actions.sendNewChannelSuccess]() {
+  [actions.addChannelSuccess]() {
     return 'successed';
   },
-  [actions.sendNewChannelFailure]() {
+  [actions.addChannelFailure]() {
     return 'failed';
   },
 }, 'none');
 
 const channelRenamingState = handleActions({
-  [actions.sendRenameChannelRequest]() {
+  [actions.renameChannelRequest]() {
     return 'requested';
   },
-  [actions.sendRenameChannelSuccess]() {
+  [actions.renameChannelSuccess]() {
     return 'successed';
   },
-  [actions.sendRenameChannelFailure]() {
+  [actions.renameChannelFailure]() {
     return 'failed';
   },
 }, 'none');
 
 const channelRemovingState = handleActions({
-  [actions.sendRemoveChannelRequest]() {
+  [actions.removeChannelRequest]() {
     return 'requested';
   },
-  [actions.sendRemoveChannelSuccess]() {
+  [actions.removeChannelSuccess]() {
     return 'successed';
   },
-  [actions.sendRemoveChannelFailure]() {
+  [actions.removeChannelFailure]() {
     return 'failed';
   },
 }, 'none');
@@ -56,36 +56,40 @@ const messages = handleActions({
   [actions.getMessage](state, { payload: { message } }) {
     return { ...state, [message.id]: message };
   },
-  [actions.sendMessageSuccess](state, { payload: { message } }) {
+  [actions.addMessageSuccess](state, { payload: { message } }) {
     return { ...state, [message.id]: message };
   },
-  [actions.sendRemoveChannelSuccess](state, { payload: { id } }) {
+  [actions.removeChannelSuccess](state, { payload: { id } }) {
     const filtered = Object.values(state).filter(item => item.channelId !== id);
     return { ...filtered };
   },
-  [actions.getRemoveChannel](state, { payload: { id } }) {
+  [actions.getRemovedChannel](state, { payload: { id } }) {
     const filtered = Object.values(state).filter(item => item.channelId !== id);
     return { ...filtered };
   },
 }, {});
 
 const channels = handleActions({
-  [actions.sendNewChannelSuccess](state, { payload: { channel } }) {
+  [actions.addChannelSuccess](state, { payload: { channel } }) {
     return { ...state, [channel.id]: channel };
   },
-  [actions.sendRenameChannelSuccess](state, { payload: { id, name } }) {
-    return { ...state, [id]: { ...state[id], name } };
+  [actions.renameChannelSuccess](state, { payload: { id, name } }) {
+    const renamedChannel = { ...state[id], name };
+
+    return { ...state, [id]: renamedChannel };
   },
-  [actions.sendRemoveChannelSuccess](state, { payload: { id } }) {
+  [actions.removeChannelSuccess](state, { payload: { id } }) {
     return omit(state, id);
   },
-  [actions.getNewChannel](state, { payload: { channel } }) {
+  [actions.getChannel](state, { payload: { channel } }) {
     return { ...state, [channel.id]: channel };
   },
-  [actions.getRenameChannel](state, { payload: { id, name } }) {
-    return { ...state, [id]: { ...state[id], name } };
+  [actions.getRenamedChannel](state, { payload: { id, name } }) {
+    const renamedChannel = { ...state[id], name };
+
+    return { ...state, [id]: renamedChannel };
   },
-  [actions.getRemoveChannel](state, { payload: { id } }) {
+  [actions.getRemovedChannel](state, { payload: { id } }) {
     return omit(state, id);
   },
 }, {});
@@ -94,13 +98,13 @@ const currentChannelId = handleActions({
   [actions.switchChannel](state, { payload: { id } }) {
     return id;
   },
-  [actions.sendNewChannelSuccess](state, { payload: { channel } }) {
+  [actions.addChannelSuccess](state, { payload: { channel } }) {
     return channel.id;
   },
-  [actions.sendRemoveChannelSuccess]() {
+  [actions.removeChannelSuccess]() {
     return 1;
   },
-  [actions.getRemoveChannel](state, { payload: { id } }) {
+  [actions.getRemovedChannel](state, { payload: { id } }) {
     if (state !== id) {
       return state;
     }
@@ -122,13 +126,13 @@ const modalShowing = handleActions({
   [actions.closeModal]() {
     return 'none';
   },
-  [actions.sendNewChannelSuccess]() {
+  [actions.addChannelSuccess]() {
     return 'none';
   },
-  [actions.sendRenameChannelSuccess]() {
+  [actions.renameChannelSuccess]() {
     return 'none';
   },
-  [actions.sendRemoveChannelSuccess]() {
+  [actions.removeChannelSuccess]() {
     return 'none';
   },
 }, 'none');

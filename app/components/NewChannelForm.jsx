@@ -15,7 +15,7 @@ class NewChannelForm extends React.Component {
   }
 
   addChannel = (state) => {
-    this.props.sendNewChannel(state['channel-name']);
+    this.props.addChannel(state['channel-name']);
   }
 
   render() {

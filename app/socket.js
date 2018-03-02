@@ -19,16 +19,16 @@ export default (socket, dispatch, userName) => {
 
   socket.on('newChannel', ({ data: { attributes: channel } }) => {
     logger(`get new channel: ${channel.name}`);
-    dispatch(actions.getNewChannel({ channel }));
+    dispatch(actions.getChannel({ channel }));
   });
 
   socket.on('renameChannel', ({ data: { attributes: { id, name } } }) => {
     logger(`get rename channel: ${name}`);
-    dispatch(actions.getRenameChannel({ id, name }));
+    dispatch(actions.getRenamedChannel({ id, name }));
   });
 
   socket.on('removeChannel', ({ data: { id } }) => {
     logger(`get remove channel: ${id}`);
-    dispatch(actions.getRemoveChannel({ id }));
+    dispatch(actions.getRemovedChannel({ id }));
   });
 };

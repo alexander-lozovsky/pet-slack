@@ -2,18 +2,11 @@ import { createAction } from 'redux-actions';
 import axios from 'axios';
 import routes from '../routes';
 
-export const showModalNewChannel = createAction('MODAL_NEW_CHANNEL_SHOW');
-export const showModalEditChannel = createAction('MODAL_EDIT_CHANNEL_SHOW');
-export const showModalRemoveChannel = createAction('MODAL_REMOVE_CHANNEL_SHOW');
-export const closeModal = createAction('MODAL_CLOSE');
+export const addMessageRequest = createAction('MESSAGE_ADD_REQUEST');
+export const addMessageSuccess = createAction('MESSAGE_ADD_SUCCESS');
+export const addMessageFailure = createAction('MESSAGE_ADD_FAILURE');
 
-export const getMessage = createAction('MESSAGE_GET');
-
-export const sendMessageRequest = createAction('MESSAGE_SEND_REQUEST');
-export const sendMessageSuccess = createAction('MESSAGE_SEND_SUCCESS');
-export const sendMessageFailure = createAction('MESSAGE_SEND_FAILURE');
-
-export const sendMessage = (text, userName, channelId) => async (dispatch) => {
+export const addMessage = (text, userName, channelId) => async (dispatch) => {
   const date = new Date();
   const minutes = date.getMinutes();
   const time = `${date.getHours()}:${minutes > 9 ? minutes : `0${minutes}`}`;
@@ -23,60 +16,66 @@ export const sendMessage = (text, userName, channelId) => async (dispatch) => {
     text,
   };
 
-  dispatch(sendMessageRequest());
+  dispatch(addMessageRequest());
   try {
     const response =
       await axios.post(routes.messagesUrl(channelId), { data: { attributes: message } });
-    dispatch(sendMessageSuccess({ message: response.data.data.attributes }));
+    dispatch(addMessageSuccess({ message: response.data.data.attributes }));
   } catch (e) {
-    dispatch(sendMessageFailure());
+    dispatch(addMessageFailure());
   }
 };
 
 export const switchChannel = createAction('CHANNEL_SWITCH');
 
-export const sendNewChannelRequest = createAction('NEW_CHANNEL_SEND_REQUEST');
-export const sendNewChannelSuccess = createAction('NEW_CHANNEL_SEND_SUCCESS');
-export const sendNewChannelFailure = createAction('NEW_CHANNEL_SEND_FAILURE');
+export const addChannelRequest = createAction('CHANNEL_ADD_REQUEST');
+export const addChannelSuccess = createAction('CHANNEL_ADD_SUCCESS');
+export const addChannelFailure = createAction('CHANNEL_ADD_FAILURE');
 
-export const sendNewChannel = name => async (dispatch) => {
-  dispatch(sendNewChannelRequest());
+export const addChannel = name => async (dispatch) => {
+  dispatch(addChannelRequest());
   try {
     const response = await axios.post(routes.channelsUrl(), { data: { attributes: { name } } });
-    dispatch(sendNewChannelSuccess({ channel: response.data.data.attributes }));
+    dispatch(addChannelSuccess({ channel: response.data.data.attributes }));
   } catch (e) {
-    dispatch(sendNewChannelFailure());
+    dispatch(addChannelFailure());
   }
 };
 
-export const sendRenameChannelRequest = createAction('RENAME_CHANNEL_SEND_REQUEST');
-export const sendRenameChannelSuccess = createAction('RENAME_CHANNEL_SEND_SUCCESS');
-export const sendRenameChannelFailure = createAction('RENAME_CHANNEL_SEND_FAILURE');
+export const renameChannelRequest = createAction('CHANNEL_RENAME_REQUEST');
+export const renameChannelSuccess = createAction('CHANNEL_RENAME_SUCCESS');
+export const renameChannelFailure = createAction('CHANNEL_RENAME_FAILURE');
 
-export const sendRenameChannel = (id, name) => async (dispatch) => {
-  dispatch(sendRenameChannelRequest());
+export const renameChannel = (id, name) => async (dispatch) => {
+  dispatch(renameChannelRequest());
   try {
     await axios.patch(routes.channelUrl(id), { data: { attributes: { name } } });
-    dispatch(sendRenameChannelSuccess({ id, name }));
+    dispatch(renameChannelSuccess({ id, name }));
   } catch (e) {
-    dispatch(sendRenameChannelFailure());
+    dispatch(renameChannelFailure());
   }
 };
 
-export const sendRemoveChannelRequest = createAction('REMOVE_CHANNEL_SEND_REQUEST');
-export const sendRemoveChannelSuccess = createAction('REMOVE_CHANNEL_SEND_SUCCESS');
-export const sendRemoveChannelFailure = createAction('REMOVE_CHANNEL_SEND_FAILURE');
+export const removeChannelRequest = createAction('CHANNEL_REMOVE_REQUEST');
+export const removeChannelSuccess = createAction('CHANNEL_REMOVE_SUCCESS');
+export const removeChannelFailure = createAction('CHANNEL_REMOVE_FAILURE');
 
-export const sendRemoveChannel = id => async (dispatch) => {
-  dispatch(sendRemoveChannelRequest());
+export const removeChannel = id => async (dispatch) => {
+  dispatch(removeChannelRequest());
   try {
     await axios.delete(routes.channelUrl(id));
-    dispatch(sendRemoveChannelSuccess({ id }));
+    dispatch(removeChannelSuccess({ id }));
   } catch (e) {
-    dispatch(sendRemoveChannelFailure());
+    dispatch(removeChannelFailure());
   }
 };
 
-export const getNewChannel = createAction('NEW_CHANNEL_GET');
-export const getRenameChannel = createAction('RENAME_CHANNEL_GET');
-export const getRemoveChannel = createAction('REMOVE_CHANNEL_GET');
+export const getMessage = createAction('MESSAGE_GET');
+export const getChannel = createAction('CHANNEL_GET');
+export const getRenamedChannel = createAction('RENAMED_CHANNEL_GET');
+export const getRemovedChannel = createAction('REMOVED_CHANNEL_GET');
+
+export const showModalNewChannel = createAction('MODAL_NEW_CHANNEL_SHOW');
+export const showModalEditChannel = createAction('MODAL_EDIT_CHANNEL_SHOW');
+export const showModalRemoveChannel = createAction('MODAL_REMOVE_CHANNEL_SHOW');
+export const closeModal = createAction('MODAL_CLOSE');

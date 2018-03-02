@@ -28,7 +28,7 @@ export default class ChannelManage extends React.Component {
   }
 
   handleRemoveChannel = () => {
-    this.props.sendRemoveChannel(this.props.currentChannel.id);
+    this.props.removeChannel(this.props.currentChannel.id);
   }
 
   renderModalRenameChannel = () =>
