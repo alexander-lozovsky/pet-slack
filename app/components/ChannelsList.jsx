@@ -32,20 +32,23 @@ export default class ChannelsList extends React.Component {
     this.props.switchChannel({ id });
   };
 
-  renderModalNew = () =>
-    (
-      <Modal show={true} onHide={this.handleCloseModal} className="new-channel-modal">
+  renderModalNew = () => {
+    const { channelCreatingState, modalShowing } = this.props;
+
+    return (
+      <Modal show={modalShowing === 'newChannel'} onHide={this.handleCloseModal} className="new-channel-modal">
         <Modal.Header>
           <Modal.Title>New channel</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
           <NewChannelForm />
-          {this.props.channelCreatingState === 'failed'
+          {channelCreatingState === 'failed'
             && <div className="alert alert-danger mt-3" role="alert">Connection error</div>}
         </Modal.Body>
       </Modal>
     );
+  }
 
   render() {
     const { userName, channels, currentChannelId } = this.props;
@@ -67,7 +70,7 @@ export default class ChannelsList extends React.Component {
               return <a onClick={this.switchChannel(id)} className={channelClass} href="#" key={id}>{`# ${name}`}</a>;
             })}
           </div>
-          {this.props.modalShowing === 'newChannel' && this.renderModalNew()}
+          {this.renderModalNew()}
           <button onClick={this.handleShowNewChannel}
             type="button" className="show-new-channel-modal-btn btn btn-primary ml-3">new</button>
         </div>

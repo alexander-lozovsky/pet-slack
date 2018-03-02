@@ -31,7 +31,7 @@ export default class NewChannelForm extends React.Component {
         </div>
         <div className="d-flex justify-content-end">
           <button disabled={isDisabled} type="submit" className="btn btn-success mr-3">Add channel</button>
-          <button className="btn btn-secondary" onClick={this.handleCloseModal}>Close</button>
+          <button className="btn btn-secondary" type="button" onClick={this.handleCloseModal}>Close</button>
         </div>
       </form>
     );

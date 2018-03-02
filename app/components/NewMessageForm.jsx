@@ -24,10 +24,10 @@ export default class NewMessageForm extends React.Component {
     return (
       <form className="form-inline" onSubmit={this.props.handleSubmit(this.addMessage)}>
         <div className="form-group w-50 mr-3">
-            <Field className="message-input form-control w-100" name="message"
-              component="input" type="text" placeholder={`Message to #${channelName}`} />
-          </div>
-          <button disabled={isDisabled} type="submit" className="message-submit btn btn-primary">Send</button>
+          <Field className="message-input form-control w-100" name="message"
+            component="input" type="text" placeholder={`Message to #${channelName}`} />
+        </div>
+        <button disabled={isDisabled} type="submit" className="message-submit btn btn-primary">Send</button>
       </form>
     );
   }

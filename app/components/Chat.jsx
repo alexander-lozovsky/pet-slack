@@ -37,11 +37,8 @@ export default class Chat extends React.Component {
     </div>
   );
 
-  renderMessages() {
+  renderMessages = () => {
     const { messages } = this.props;
-    if (messages.length === 0) {
-      return '';
-    }
 
     return messages.map((item, index) => {
       const isRenderHeader =
@@ -61,7 +58,7 @@ export default class Chat extends React.Component {
 
     return (
       <div className="chat d-flex flex-column justify-content-between h-100">
-        <ChannelManage currentChannel={currentChannel}/>
+        <ChannelManage />
         <div className="chat-messages col">
           <div className="card h-100">
             <div className="card-body" ref={(div) => { this.chatWindow = div; }}>

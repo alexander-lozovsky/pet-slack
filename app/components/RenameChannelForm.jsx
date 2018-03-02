@@ -35,7 +35,7 @@ export default class RenameChannelForm extends React.Component {
         </div>
         <div className="d-flex justify-content-end">
           <button disabled={isDisabled} type="submit" className="btn btn-success mr-3">Confirm</button>
-          <button className="btn btn-secondary" onClick={this.handleCloseModal}>Close</button>
+          <button type="button" className="btn btn-secondary" onClick={this.handleCloseModal}>Close</button>
         </div>
       </form>
     );
