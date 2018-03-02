@@ -9,11 +9,11 @@ export default (socket, dispatch, userName) => {
   });
 
   socket.on('newMessage', ({ data: { attributes: message } }) => {
-    logger(`new message: ${message.text}`);
     if (message.userName === userName) {
       return;
     }
 
+    logger(`new message: ${message.text}`);
     dispatch(actions.getMessage({ message }));
   });
 

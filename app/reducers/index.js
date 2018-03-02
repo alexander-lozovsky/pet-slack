@@ -1,4 +1,4 @@
-import { omit } from 'lodash';
+import { omit, omitBy } from 'lodash';
 import { handleActions } from 'redux-actions';
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
@@ -60,10 +60,10 @@ const messages = handleActions({
     return { ...state, [message.id]: message };
   },
   [actions.removeChannelSuccess](state, { payload: { id } }) {
-    return Object.values(state).filter(item => item.channelId !== id);
+    return omitBy(state, (item => item.channelId === id));
   },
   [actions.getRemovedChannel](state, { payload: { id } }) {
-    return Object.values(state).filter(item => item.channelId !== id);
+    return omitBy(state, (item => item.channelId === id));
   },
 }, {});
 

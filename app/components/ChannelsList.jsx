@@ -67,12 +67,13 @@ export default class ChannelsList extends React.Component {
                 active: id === currentChannelId,
               });
 
-              return <a onClick={this.switchChannel(id)} className={channelClass} href="#" key={id}>{`# ${name}`}</a>;
+              return <a onClick={this.switchChannel(id)}
+                className={channelClass} href="#" key={id}>{`# ${name}`}</a>;
             })}
           </div>
-          {this.renderModalNew()}
           <button onClick={this.handleShowNewChannel}
             type="button" className="show-new-channel-modal-btn btn btn-primary ml-3">new</button>
+          {this.renderModalNew()}
         </div>
       </div>
     );
