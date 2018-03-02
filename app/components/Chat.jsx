@@ -2,15 +2,14 @@ import React from 'react';
 import connect from '../connect';
 import NewMessageForm from './NewMessageForm.jsx';
 import ChannelManage from './ChannelManage.jsx';
+import { currentMessagesSelector } from '../selectors';
 
 const mapStateToProps = (state) => {
-  const { channels, messages, currentChannelId } = state;
-  const filteredMessages = Object.values(messages)
-    .filter(({ channelId }) => channelId === currentChannelId);
+  const { channels, currentChannelId } = state;
 
   const props = {
     currentChannel: channels[currentChannelId],
-    messages: filteredMessages,
+    messages: currentMessagesSelector(state),
     messageCreatingState: state.messageCreatingState,
   };
 

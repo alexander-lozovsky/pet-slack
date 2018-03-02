@@ -2,14 +2,16 @@ import React from 'react';
 import { Modal } from 'react-bootstrap';
 import cn from 'classnames';
 import NewChannelForm from './NewChannelForm.jsx';
+import { channelsSelector } from '../selectors';
 import connect from '../connect';
 
 const mapStateToProps = (state) => {
+  const { currentChannelId, uiState: { modalShowing }, channelCreatingState } = state;
   const props = {
-    channels: state.channels,
-    currentChannelId: state.currentChannelId,
-    modalShowing: state.uiState.modalShowing,
-    channelCreatingState: state.channelCreatingState,
+    channels: channelsSelector(state),
+    currentChannelId,
+    modalShowing,
+    channelCreatingState,
   };
 
   return props;
@@ -55,8 +57,7 @@ export default class ChannelsList extends React.Component {
         </div>
         <div className="channels-manage pb-3">
           <div className="nav flex-column nav-pills mb-3">
-            {Object.keys(channels).map((key) => {
-              const { id, name } = channels[key];
+            {channels.map(({ id, name }) => {
               const channelClass = cn({
                 'nav-link': true,
                 'text-white': true,
