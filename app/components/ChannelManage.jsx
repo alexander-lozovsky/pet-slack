@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
     currentChannel: channels[currentChannelId],
     channelRenamingState: state.channelRenamingState,
     channelRemovingState: state.channelRemovingState,
-    modalShowing: state.uiState.modalShowing,
+    activeModal: state.uiState.activeModal,
   };
 
   return props;
@@ -34,10 +34,10 @@ export default class ChannelManage extends React.Component {
   }
 
   renderModalRenameChannel = () => {
-    const { channelRenamingState, modalShowing, currentChannel } = this.props;
+    const { channelRenamingState, activeModal, currentChannel } = this.props;
 
     return (
-      <Modal show={modalShowing === 'editChannel'}
+      <Modal show={activeModal === 'editChannel'}
         onHide={this.handleCloseModal} className="rename-channel-modal">
         <Modal.Header>
           <Modal.Title>Rename channel</Modal.Title>
@@ -53,10 +53,10 @@ export default class ChannelManage extends React.Component {
   }
 
   renderModalRemoveChannel = () => {
-    const { modalShowing, currentChannel, channelRemovingState } = this.props;
+    const { activeModal, currentChannel, channelRemovingState } = this.props;
 
     return (
-      <Modal show={modalShowing === 'removeChannel'}
+      <Modal show={activeModal === 'removeChannel'}
         onHide={this.handleCloseModal} className="remove-channel-modal">
         <Modal.Header>
           <Modal.Title>{`Remove ${currentChannel.name}`}</Modal.Title>

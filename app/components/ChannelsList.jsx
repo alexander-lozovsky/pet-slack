@@ -6,11 +6,11 @@ import { channelsSelector } from '../selectors';
 import connect from '../connect';
 
 const mapStateToProps = (state) => {
-  const { currentChannelId, uiState: { modalShowing }, channelCreatingState } = state;
+  const { currentChannelId, uiState: { activeModal }, channelCreatingState } = state;
   const props = {
     channels: channelsSelector(state),
     currentChannelId,
-    modalShowing,
+    activeModal,
     channelCreatingState,
   };
 
@@ -33,10 +33,10 @@ export default class ChannelsList extends React.Component {
   };
 
   renderModalNew = () => {
-    const { channelCreatingState, modalShowing } = this.props;
+    const { channelCreatingState, activeModal } = this.props;
 
     return (
-      <Modal show={modalShowing === 'newChannel'} onHide={this.handleCloseModal} className="new-channel-modal">
+      <Modal show={activeModal === 'newChannel'} onHide={this.handleCloseModal} className="new-channel-modal">
         <Modal.Header>
           <Modal.Title>New channel</Modal.Title>
         </Modal.Header>
