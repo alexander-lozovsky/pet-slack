@@ -1,6 +1,9 @@
 import { createAction } from 'redux-actions';
 import axios from 'axios';
 import routes from '../routes';
+import getLogger from '../../lib/logger';
+
+const logger = getLogger('request');
 
 export const addMessageRequest = createAction('MESSAGE_ADD_REQUEST');
 export const addMessageSuccess = createAction('MESSAGE_ADD_SUCCESS');
@@ -21,7 +24,9 @@ export const addMessage = (text, userName, channelId) => async (dispatch) => {
     const response =
       await axios.post(routes.messagesUrl(channelId), { data: { attributes: message } });
     dispatch(addMessageSuccess({ message: response.data.data.attributes }));
+    logger('add message success');
   } catch (e) {
+    logger(`add message fail: ${e.message}`);
     dispatch(addMessageFailure());
   }
 };
@@ -37,7 +42,9 @@ export const addChannel = name => async (dispatch) => {
   try {
     const response = await axios.post(routes.channelsUrl(), { data: { attributes: { name } } });
     dispatch(addChannelSuccess({ channel: response.data.data.attributes }));
+    logger('add channel success');
   } catch (e) {
+    logger(`add channel fail: ${e.message}`);
     dispatch(addChannelFailure());
   }
 };
@@ -51,7 +58,9 @@ export const renameChannel = (id, name) => async (dispatch) => {
   try {
     await axios.patch(routes.channelUrl(id), { data: { attributes: { name } } });
     dispatch(renameChannelSuccess({ id, name }));
+    logger('rename channel success');
   } catch (e) {
+    logger(`rename channel fail: ${e.message}`);
     dispatch(renameChannelFailure());
   }
 };
@@ -65,7 +74,9 @@ export const removeChannel = id => async (dispatch) => {
   try {
     await axios.delete(routes.channelUrl(id));
     dispatch(removeChannelSuccess({ id }));
+    logger('remove channel success');
   } catch (e) {
+    logger(`remove channel fail: ${e.message}`);
     dispatch(removeChannelFailure());
   }
 };
