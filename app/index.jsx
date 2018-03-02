@@ -28,9 +28,12 @@ if (!userName) {
   cookies.set('userName', userName);
 }
 
+const channels = gon.channels.reduce((acc, item) => ({ ...acc, [item.id]: item }), {});
+const messages = gon.messages.reduce((acc, item) => ({ ...acc, [item.id]: item }), {});
+
 const store = createStore(
   reducers,
-  gon,
+  { ...gon, channels, messages },
   composeWithDevTools(applyMiddleware(thunk)),
 );
 const socket = io();

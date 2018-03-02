@@ -55,7 +55,8 @@ export default class ChannelsList extends React.Component {
         </div>
         <div className="channels-manage pb-3">
           <div className="nav flex-column nav-pills mb-3">
-            {channels.map(({ id, name }) => {
+            {Object.keys(channels).map((key) => {
+              const { id, name } = channels[key];
               const channelClass = cn({
                 'nav-link': true,
                 'text-white': true,

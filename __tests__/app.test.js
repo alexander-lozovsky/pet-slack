@@ -50,11 +50,11 @@ const catchMessage = (channelId) => {
 
 it('check app', async () => {
   const initState = {
-    channels: [
-      { id: 1, name: 'general', removable: false },
-      { id: 2, name: 'random', removable: false },
-    ],
-    messages: [],
+    channels: {
+      1: { id: 1, name: 'general', removable: false },
+      2: { id: 2, name: 'random', removable: false },
+    },
+    messages: {},
     currentChannelId: 1,
   };
 

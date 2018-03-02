@@ -70,6 +70,7 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-form": "*",
     "redux-thunk": "*",
+    "reselect": "^3.0.1",
     "socket.io": "*",
     "socket.io-client": "^2.0.4",
     "style-loader": "*",

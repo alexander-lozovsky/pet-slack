@@ -1,3 +1,4 @@
+import { omit } from 'lodash';
 import { handleActions } from 'redux-actions';
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
@@ -53,51 +54,41 @@ const channelRemovingState = handleActions({
 
 const messages = handleActions({
   [actions.getMessage](state, { payload: { message } }) {
-    return [...state, message];
+    return { ...state, [message.id]: message };
   },
   [actions.sendMessageSuccess](state, { payload: { message } }) {
-    return [...state, message];
+    return { ...state, [message.id]: message };
   },
   [actions.sendRemoveChannelSuccess](state, { payload: { id } }) {
-    return state.filter(item => item.channelId !== id);
+    const filtered = Object.values(state).filter(item => item.channelId !== id);
+    return { ...filtered };
   },
   [actions.getRemoveChannel](state, { payload: { id } }) {
-    return state.filter(item => item.channelId !== id);
+    const filtered = Object.values(state).filter(item => item.channelId !== id);
+    return { ...filtered };
   },
-}, []);
+}, {});
 
 const channels = handleActions({
   [actions.sendNewChannelSuccess](state, { payload: { channel } }) {
-    if (state.find(item => item.id === channel.id)) {
-      return state;
-    }
-
-    return [...state, channel];
+    return { ...state, [channel.id]: channel };
   },
   [actions.sendRenameChannelSuccess](state, { payload: { id, name } }) {
-    const editedChannel = state.find(item => item.id === id);
-    editedChannel.name = name;
-    return [...state];
+    return { ...state, [id]: { ...state[id], name } };
   },
   [actions.sendRemoveChannelSuccess](state, { payload: { id } }) {
-    return state.filter(item => item.id !== id);
+    return omit(state, id);
   },
   [actions.getNewChannel](state, { payload: { channel } }) {
-    if (state.find(item => item.id === channel.id)) {
-      return state;
-    }
-
-    return [...state, channel];
+    return { ...state, [channel.id]: channel };
   },
   [actions.getRenameChannel](state, { payload: { id, name } }) {
-    const editedChannel = state.find(item => item.id === id);
-    editedChannel.name = name;
-    return [...state];
+    return { ...state, [id]: { ...state[id], name } };
   },
   [actions.getRemoveChannel](state, { payload: { id } }) {
-    return state.filter(item => item.id !== id);
+    return omit(state, id);
   },
-}, []);
+}, {});
 
 const currentChannelId = handleActions({
   [actions.switchChannel](state, { payload: { id } }) {

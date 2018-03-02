@@ -4,11 +4,13 @@ import NewMessageForm from './NewMessageForm.jsx';
 import ChannelManage from './ChannelManage.jsx';
 
 const mapStateToProps = (state) => {
-  const currentChannel = state.channels.find(item => item.id === state.currentChannelId);
-  const messages = state.messages.filter(item => item.channelId === state.currentChannelId);
+  const { channels, messages, currentChannelId } = state;
+  const filteredMessages = Object.values(messages)
+    .filter(({ channelId }) => channelId === currentChannelId);
+
   const props = {
-    currentChannel,
-    messages,
+    currentChannel: channels[currentChannelId],
+    messages: filteredMessages,
     messageCreatingState: state.messageCreatingState,
   };
 
