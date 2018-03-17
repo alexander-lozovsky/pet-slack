@@ -2,7 +2,10 @@ import path from 'path';
 import webpack from 'webpack';
 
 export default () => ({
-  entry: './app/index.jsx',
+  entry: {
+    vendor: ['react', 'react-dom', 'react-redux', 'redux', 'redux-form', 'lodash', 'jquery', 'socket.io-client'],
+    app: './app/index.jsx',
+  },
   externals: {
     gon: 'gon',
   },
